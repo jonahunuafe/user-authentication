@@ -16,7 +16,7 @@ function Signup() {
             </div>
             <div>
                 <Button title="Sign Up">Sign Up</Button>
-                <p>By clicking "Sign up" you agree to our <span>Terms & Privacy Policy</span></p>
+                <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
                 <Button>Already have an account? <a href="http://">Log in</a></Button>
             </div>
         </form>
