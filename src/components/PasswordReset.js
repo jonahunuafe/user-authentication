@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Input from "./Input";
 
 function PasswordReset() {
     return (
@@ -6,13 +7,12 @@ function PasswordReset() {
             <form>
                 <h2>Send password reset link</h2>
                 <h4>We'll send a reset link to youe email</h4>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" required />
+                <Input label="Email" id="email" />
                 <p>
                     <Button>Send</Button>
                 </p>
             </form>
-        </div>
+        </div> 
     );
 }
 
