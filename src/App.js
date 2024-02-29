@@ -1,5 +1,6 @@
-import Signup from "./components/Signup";
+//import Signup from "./components/Signup";
 import MainNavigation from "./components/MainNavigation";
+import PasswordReset from "./components/PasswordReset";
 
 function App() {
   return (
@@ -8,7 +9,8 @@ function App() {
         <MainNavigation title="Already have an account?">
           <a href="http://">Sign in</a>
         </MainNavigation>
-        <Signup />
+        {/* <Signup /> */}
+        <PasswordReset />
       </main>
     </>
   );

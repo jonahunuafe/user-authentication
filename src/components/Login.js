@@ -1,9 +1,13 @@
 import Button from "./Button";
 
 function Login() {
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" required />
                 <label htmlFor="password">Password</label>

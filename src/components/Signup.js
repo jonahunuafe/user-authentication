@@ -1,8 +1,13 @@
 import Button from "./Button"
 
 function Signup() {
+    function handleSubmit(event) {
+        event.preventDefault();
+    }
+
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div>
                 <h2>Create an account</h2>
                 <label htmlFor="first-name">First Name</label>
