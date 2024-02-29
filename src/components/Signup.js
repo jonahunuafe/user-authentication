@@ -1,3 +1,5 @@
+import Button from "./Button"
+
 function Signup() {
     return (
         <form>
@@ -9,8 +11,13 @@ function Signup() {
                 <input type="text" id="last-name" required />
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" required />
-                <labe htmlFor="password">Password</labe>
+                <label htmlFor="password">Password</label>
                 <input type="password" id="password" required />
+            </div>
+            <div>
+                <Button title="Sign Up">Sign Up</Button>
+                <p>By clicking "Sign up" you agree to our <span>Terms & Privacy Policy</span></p>
+                <Button>Already have an account? <a href="http://">Log in</a></Button>
             </div>
         </form>
     );
