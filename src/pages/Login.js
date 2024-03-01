@@ -1,6 +1,9 @@
-import Button from "./Button";
+import { Link } from "react-router-dom";
+
+import Button from "../components/Button";
 
 function Login() {
+ 
     function handleSubmit(event) {
         event.preventDefault();
     }
@@ -12,8 +15,8 @@ function Login() {
                 <input type="email" id="email" required />
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" required />
+                <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 <Button>Log in</Button>
-                <p><a href="http://">Forgot your password?</a></p>
                 <p>Don't have an account yet?<a href="http://">Sign up</a></p>
             </form>
         </div>
