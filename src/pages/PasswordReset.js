@@ -15,7 +15,7 @@ function PasswordReset() {
             <form>
                 <h2>Send password reset link</h2>
                 <h4>We'll send a reset link to youe email</h4>
-                <Input label="Email" id="email" />
+                <Input label="Email" id="email" type="email" />
                 <p>
                     <Button>Send</Button>
                 </p>

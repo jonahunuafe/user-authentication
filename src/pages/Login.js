@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
+import Input from "../components/Input";
 
 function Login() {
  
@@ -11,13 +12,11 @@ function Login() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" required />
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" required />
+                <Input label="Email" id="email" type="email" />
+                <Input label="password" id="passord" type="password" />
                 <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 <Button>Log in</Button>
-                <p>Don't have an account yet?<a href="http://">Sign up</a></p>
+                <p>Don't have an account yet?<Link to="/">Sign up</Link></p>
             </form>
         </div>
     );
