@@ -1,6 +1,6 @@
 input {
     display: block;
-    padding: 3%;
+    padding: 4%;
     border: 2px solid lightgray;
     outline: none;
     border-radius: 3%;
@@ -9,7 +9,7 @@ input {
     margin-bottom: 1rem;
 }
 
-/* .inputContainer {
+.inputContainer {
     margin: auto;
     width: 90%;
-} */
+}
