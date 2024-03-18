@@ -20,14 +20,27 @@ function MainNavigation() {
     return (
         <>
             <header>
-                <div>
-                    <img src={Logo} alt="logo" style={{width: "10%"}} />
-                    <h2 className={classes.thread}>Threadlist</h2>
+                    <div className={classes.subHeader1}>
+                        <img src={Logo} alt="logo" style={{width: "10%"}} />
+                        <h2 className={classes.thread}>Threadlist</h2>
+                    </div>
 
-                    {!state ? <NavList text="Already have an account?" link="/" linkText="Log in" onClick={toggleState} /> : 
-                        <NavList text="Don't have an account yet" link="/login" linkText="Sign up" onClick={toggleState} />
-                    }
-                </div>
+                    <div className={classes.subHeader2}>
+                        {!state ? (
+                            <NavList 
+                                text="Already have an account?" 
+                                link="/" 
+                                linkText="Log in" 
+                                onClick={toggleState} 
+                            />) : (
+                            <NavList 
+                                text="Don't have an account yet" 
+                                link="/login" 
+                                linkText="Sign up" 
+                                onClick={toggleState} 
+                            />)
+                        }
+                    </div>
             </header>
         </>
     );

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import Button from "../components/Button";
 import Input from "../components/Input";
-import InputInvalid from "../components/InputInvalid";
+
 
 
 function Signup() {
@@ -13,7 +13,6 @@ function Signup() {
 
     }
 
-
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -22,7 +21,6 @@ function Signup() {
                     label="First Name" 
                     id="first-name" 
                     type="text" 
-                    error={<InputInvalid text="Not valid" />}
                 />
                 <Input label="Last Name" id="last-name" type="text" />
                 <Input label="Email" id="email" type="email" />
