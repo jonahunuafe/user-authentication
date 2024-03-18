@@ -1,6 +1,6 @@
-import { useState } from "react";
+import Logo from "../images/istockphoto-1200899039-612x612.jpg";
 
-// import Logo from "../images/istockphoto-1200899039-612x612.jpg"
+import { useState } from "react";
 
 import classes from "./MainNavigation.module.css";
 import NavList from "./NavList";
@@ -21,11 +21,11 @@ function MainNavigation() {
         <>
             <header>
                 <div>
-                    {/* <img src={Logo} alt="logo" /> */}
+                    <img src={Logo} alt="logo" style={{width: "10%"}} />
                     <h2 className={classes.thread}>Threadlist</h2>
 
-                    {!state ? <NavList text="Already have an account?" link="/" textLink="Log in" /> : 
-                        <NavList text="Don't have an account yet" link="/login" textLink="Sign up" />
+                    {!state ? <NavList text="Already have an account?" link="/" linkText="Log in" onClick={toggleState} /> : 
+                        <NavList text="Don't have an account yet" link="/login" linkText="Sign up" onClick={toggleState} />
                     }
                 </div>
             </header>
