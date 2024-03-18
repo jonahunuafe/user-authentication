@@ -11,7 +11,7 @@ function PasswordReset() {
     }
 
     return (
-        <div>
+        <div className="container">
             <form>
                 <h2>Send password reset link</h2>
                 <h4>We'll send a reset link to youe email</h4>
