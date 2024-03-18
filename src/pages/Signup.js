@@ -12,17 +12,25 @@ function Signup() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Create an account</h2>
-            <Input label="First Name" id="first-name" type="text" />
-            <Input label="Last Name" id="last-name" type="text" />
-            <Input label="Email" id="email" type="email" />
-            <Input label="Password" id="password" type="password" />
-    
-            <Button>Sign Up</Button>
-            <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-            <Button>Already have an account? <Link to="/login">Log in</Link></Button>  
-        </form>
+        <>
+            <div className="container">
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <h2>Create an account</h2>
+                        <Input label="First Name" id="first-name" type="text" />
+                        <Input label="Last Name" id="last-name" type="text" />
+                        <Input label="Email" id="email" type="email" />
+                        <Input label="Password" id="password" type="password" />
+                        <Button>Sign Up</Button>
+                    </div> 
+                </form>
+
+                <div>
+                    <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
+                    <Button>Already have an account? <Link to="/login">Log in</Link></Button> 
+                </div>
+            </div>
+        </>
     );
 }
 
