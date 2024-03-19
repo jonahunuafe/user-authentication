@@ -12,6 +12,10 @@ header {
     flex-basis: 50%;
 }
 
+.subHeader1 img {
+    width: 20%;
+}
+
 .thread {
     margin: 0;
     font-family: "Roboto Condensed", sans-serif;

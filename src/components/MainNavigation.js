@@ -21,7 +21,7 @@ function MainNavigation() {
         <>
             <header>
                     <div className={classes.subHeader1}>
-                        <img src={Logo} alt="logo" style={{width: "10%"}} />
+                        <img src={Logo} alt="logo" />
                         <h2 className={classes.thread}>Threadlist</h2>
                     </div>
 

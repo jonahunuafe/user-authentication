@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-import Button from "../components/Button";
 import Input from "../components/Input";
 
 
@@ -16,18 +15,18 @@ function Signup() {
             <div className="container">
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <h2>Create an account</h2>
+                        <h2 className="create-h2">Create an account</h2>
                         <Input label="First Name" id="first-name" type="text" />
                         <Input label="Last Name" id="last-name" type="text" />
                         <Input label="Email" id="email" type="email" />
                         <Input label="Password" id="password" type="password" />
-                        <Button>Sign Up</Button>
+                        <button className="signUpBtn">Sign Up</button>
                     </div> 
                 </form>
 
                 <div>
                     <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-                    <Button>Already have an account? <Link to="/login">Log in</Link></Button> 
+                    <button className="signUpLogin">Already have an account? <Link to="/login">Log in</Link></button> 
                 </div>
             </div>
         </>
