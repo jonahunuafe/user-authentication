@@ -12,7 +12,12 @@ body {
   width: 90%;
 }
 
-p, .create-h2 {
+.signup-h2, .login-h2 {
+  text-align: center;
+  color: grey;
+}
+
+p {
   text-align: center;
   line-height: 1.5;
   color: grey;
@@ -43,3 +48,15 @@ button {
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
+
+.loginBtn, .resetBtn {
+  background-color: blue;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  color: white;
+}
+
+.reset-h2, .reset-h4 {
+  text-align: center;
+  color: grey;
+}
+
