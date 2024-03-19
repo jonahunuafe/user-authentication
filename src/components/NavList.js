@@ -4,11 +4,13 @@ import classes from "./NavList.module.css";
 function NavList({ text, link, linkText, onClick }) {
     return (
         <>    
-            <div onClick={onClick} style={{cursor: "pointer"}}>
+            <div>
                 <p className={classes.text}>{text}</p>
-                <Link to={link} className={classes.link}>
-                    {linkText}
-                </Link>
+                <div onClick={onClick}>
+                    <Link to={link} className={classes.link}>
+                        {linkText}
+                    </Link>
+                </div>
             </div>
         </>
     );
