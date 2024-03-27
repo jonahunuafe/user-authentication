@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input";
+import MainNavigation from "../components/MainNavigation";
 
 function Login() {
  
@@ -10,6 +11,7 @@ function Login() {
 
     return (
         <>
+            <MainNavigation />
             <h2 className="login-h2">Log in</h2>
             <div className="container">
                 <form onSubmit={handleSubmit}>
