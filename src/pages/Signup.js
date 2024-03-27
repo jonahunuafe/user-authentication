@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input";
-
+import MainNavigation from "../components/MainNavigation";
 
 function Signup() {
 
@@ -12,6 +12,7 @@ function Signup() {
 
     return (
         <>
+            <MainNavigation />
             <div className="container">
                 <form onSubmit={handleSubmit}>
                     <div>
