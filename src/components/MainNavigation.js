@@ -1,12 +1,12 @@
 import Logo from "../images/istockphoto-1200899039-612x612.jpg";
-
+import { useState } from "react";
 
 import classes from "./MainNavigation.module.css";
 import NavList from "./NavList";
 
 
 function MainNavigation() {
-    
+    const [state, setState] = useState(false);
 
     return (
         <>
@@ -17,20 +17,18 @@ function MainNavigation() {
                 </div>
 
                 <div className={classes.subHeader2}>
-                    {(
+                    {!state ? (
                         <NavList 
-                            text="Already have an account" 
-                            link="" 
-                            linkText="Log in" 
-                            onClick=""
-                        />)  (
-                        <NavList 
-                            text="Don't have an account yet?" 
-                            link=""
-                            linkText="Sign up" 
-                            onClick=""
-                        />)
+                            text="Already have an account?"
+                            linkText="Log in"
+                            onClick={() => setState((prev) => !prev)}
+                        />) : (<NavList 
+                        text="Don't have an account yet?" 
+                        linkText="Sign up" 
+                        onClick={() => setState((prev) => !prev)}
+                    />)
                     }
+                    
                 </div>
             </header>
         </>
