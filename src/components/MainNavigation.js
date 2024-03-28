@@ -1,5 +1,5 @@
-import Logo from "../images/istockphoto-1200899039-612x612.jpg";
 import { useState } from "react";
+import Logo from "../images/istockphoto-1200899039-612x612.jpg";
 
 import classes from "./MainNavigation.module.css";
 import NavList from "./NavList";
@@ -7,6 +7,14 @@ import NavList from "./NavList";
 
 function MainNavigation() {
     const [state, setState] = useState(false);
+
+    const handleLogin = () => {
+        setState(true);
+    };
+    
+    const handleSignup = () => {
+        setState(false);
+    };
 
     return (
         <>
@@ -17,16 +25,19 @@ function MainNavigation() {
                 </div>
 
                 <div className={classes.subHeader2}>
-                    {!state ? (
+                    {state ? (
                         <NavList 
-                            text="Already have an account?"
-                            link="/login"
-                            onClick={() => setState((prev) => !prev)}
-                        />) : (<NavList 
                             text="Don't have an account yet?" 
-                            link="/"
-                            onClick={() => setState((prev) => !prev)}
-                    />)
+                            linkText="Signup"
+                            onClick={handleSignup} 
+                        />
+                        ) : (
+                            <NavList 
+                                text="Already have an account?"
+                                linkText="Login"
+                                onClick={handleLogin}
+                            />
+                        )
                     }
                     
                 </div>

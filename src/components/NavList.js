@@ -1,20 +1,12 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "./NavList.module.css";
 
-function NavList({ text, link , onClick }) {
-    const [linkText, setLinkText] = useState(false);
-
-    function toggleLinkText() {
-        if(!linkText) {
-            setLinkText((prev) => !prev);
-            onClick();
-        }
-    }
-
+function NavList({ text, link, linkText, onClick }) {
     return (
         <>    
-            <div>{text} <div><Link to={link} onClick={toggleLinkText} className={classes.link}>{linkText ? "Signup" : "Login"}</Link></div></div>
+            <p>
+                {text}<Link to={link} className={classes.link} onClick={() => onClick()}> {linkText}</Link>
+            </p>
         </>
     );
 }  
