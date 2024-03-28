@@ -20,12 +20,12 @@ function MainNavigation() {
                     {!state ? (
                         <NavList 
                             text="Already have an account?"
-                            linkText="Log in"
+                            link="/login"
                             onClick={() => setState((prev) => !prev)}
                         />) : (<NavList 
-                        text="Don't have an account yet?" 
-                        linkText="Sign up" 
-                        onClick={() => setState((prev) => !prev)}
+                            text="Don't have an account yet?" 
+                            link="/"
+                            onClick={() => setState((prev) => !prev)}
                     />)
                     }
                     
