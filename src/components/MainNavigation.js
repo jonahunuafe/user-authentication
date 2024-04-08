@@ -1,15 +1,17 @@
 import Logo from "../images/istockphoto-1200899039-612x612.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
 
 
 function MainNavigation() {
     const [state, setState] = useState(false);
+    // const [link, setLink] = useState("/login");
 
 
     const toggleState = () => {
-        setState((prev) => !prev);
+        setState((prevState) => !prevState);
     };
 
     return (
@@ -22,13 +24,23 @@ function MainNavigation() {
 
                 <div className={classes.subHeader2}>
                     {state ? (
-                            <div onClick={toggleState}>
-                                <p>Don't have an account yet?</p>
+                            <div>
+                                <p>
+                                    <span>Already have an account? </span>
+                                    <Link onClick={() => toggleState()}>
+                                        Signup
+                                    </Link>
+                                </p>
                             </div>
                         ) : (
-                            <div onClick={toggleState}>
-                                <p>Already have an account?</p>
-                            </div>  
+                            <div>
+                                <p>
+                                    <span>Don't have an account yet? </span>
+                                    <Link onClick={() => toggleState()}>
+                                        Login
+                                    </Link>
+                                </p>
+                            </div>
                         )
                     }  
                 </div>

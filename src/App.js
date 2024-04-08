@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import PasswordReset from './pages/PasswordReset';
 
 const router = createBrowserRouter([
-  {path: "/", element: <Signup/> },
+  {path: "/", element: <Signup/>},
   {path: "/login", element: <Login />},
   {path: "/login/passwordreset", element: <PasswordReset />}
 ]);
