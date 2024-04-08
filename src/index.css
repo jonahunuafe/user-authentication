@@ -60,3 +60,32 @@ button {
   color: grey;
 }
 
+@media(min-width: 768px) {
+  button {
+    width: 38.8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    transform: translateX(-8px);
+  }
+
+  .signup-h2 {
+    margin-top: 2rem;
+  }
+
+  .signUpBtn {
+    margin-top: 3.95rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .signUpBtn:hover {
+    opacity: 0.7;
+  }
+
+  .signUpLogin {
+    margin-top: 2rem;
+  }
+  
+}
+
