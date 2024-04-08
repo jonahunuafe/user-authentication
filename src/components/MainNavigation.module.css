@@ -31,7 +31,7 @@ p {
     .subHeader2 {
         width: 100%;
         display: flex;
-        outline: 1px green solid;
+        justify-content: right;
     }
 }
 
