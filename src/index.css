@@ -10,7 +10,11 @@ body {
 .container {
   margin: auto;
   width: 90%;
-  padding-top: 5rem;
+  padding-top: 4rem;
+}
+
+.container > p {
+  margin-top: 2.3rem;
 }
 
 .signup-h2, .login-h2 {
@@ -38,9 +42,6 @@ button {
 }
 
 .signUpBtn {
-  background-color: blue;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
-  color: white;
   margin-top: 3rem;
   margin-bottom: 0.5rem;
 }
@@ -50,10 +51,14 @@ button {
   margin-bottom: 3rem;
 }
 
-.loginBtn, .resetBtn {
+.loginBtn, .resetBtn, .signUpBtn {
   background-color: blue;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   color: white;
+}
+
+.loginBtn {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .signUpBtn:hover, .loginBtn:hover {

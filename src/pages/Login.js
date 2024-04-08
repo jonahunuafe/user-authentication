@@ -16,7 +16,7 @@ function Login() {
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
                     <Input label="Email" id="email" type="email" />
-                    <Input label="password" id="passord" type="password" />
+                    <Input label="Password" id="passord" type="password" />
                     <button className="loginBtn">Log in</button>
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 </form>
