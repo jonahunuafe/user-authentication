@@ -10,6 +10,7 @@ body {
 .container {
   margin: auto;
   width: 90%;
+  padding-top: 5rem;
 }
 
 .signup-h2, .login-h2 {
@@ -55,6 +56,10 @@ button {
   color: white;
 }
 
+.signUpBtn:hover, .loginBtn:hover {
+  opacity: 0.7;
+}
+
 .reset-h2, .reset-h4 {
   text-align: center;
   color: grey;
@@ -77,10 +82,6 @@ button {
   .signUpBtn {
     margin-top: 3.95rem;
     margin-bottom: 1.2rem;
-  }
-
-  .signUpBtn:hover {
-    opacity: 0.7;
   }
 
   .signUpLogin {
