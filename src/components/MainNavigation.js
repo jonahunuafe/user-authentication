@@ -38,7 +38,7 @@ function MainNavigation() {
                             <div>
                                 <p>
                                     <span>Don't have an account yet? </span>
-                                    <span>
+                                    <span onClick={() => toggleState()}>
                                         <a href="/login">
                                             Login
                                         </a>
