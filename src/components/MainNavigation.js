@@ -1,6 +1,6 @@
 import Logo from "../images/istockphoto-1200899039-612x612.jpg";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
 
@@ -23,22 +23,26 @@ function MainNavigation() {
                 </div>
 
                 <div className={classes.subHeader2}>
-                    {state ? (
+                    {!state ? (
                             <div>
                                 <p>
                                     <span>Already have an account? </span>
-                                    <Link onClick={() => toggleState()}>
-                                        Signup
-                                    </Link>
+                                    <span onClick={() => toggleState()}> 
+                                        <a href="/">
+                                            Signup
+                                        </a>
+                                    </span>
                                 </p>
                             </div>
                         ) : (
                             <div>
                                 <p>
                                     <span>Don't have an account yet? </span>
-                                    <Link onClick={() => toggleState()}>
-                                        Login
-                                    </Link>
+                                    <span>
+                                        <a href="/login">
+                                            Login
+                                        </a>
+                                    </span>
                                 </p>
                             </div>
                         )
