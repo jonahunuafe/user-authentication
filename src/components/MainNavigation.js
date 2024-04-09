@@ -19,22 +19,18 @@ function MainNavigation() {
                             <div>
                                 <p>
                                     <span>Already have an account? </span>
-                                    
-                                        <Link to="/">
-                                            Signup
-                                        </Link>
-                                
+                                    <Link to="/">
+                                        Signup
+                                    </Link>
                                 </p>
                             </div>
                         )  (
                             <div>
                                 <p>
                                     <span>Don't have an account yet? </span>
-                                    
-                                        <Link to="/login">
-                                            Login
-                                        </Link>
-                                
+                                    <Link to="/login">
+                                        Login
+                                    </Link>
                                 </p>
                             </div>
                         )
