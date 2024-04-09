@@ -1,18 +1,10 @@
 import Logo from "../images/istockphoto-1200899039-612x612.jpg";
-import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
 
 
 function MainNavigation() {
-    const [state, setState] = useState(false);
-    // const [link, setLink] = useState("/login");
-
-
-    const toggleState = () => {
-        setState((prevState) => !prevState);
-    };
 
     return (
         <>
@@ -23,26 +15,26 @@ function MainNavigation() {
                 </div>
 
                 <div className={classes.subHeader2}>
-                    {!state ? (
+                    { (
                             <div>
                                 <p>
                                     <span>Already have an account? </span>
-                                    <span onClick={() => toggleState()}> 
-                                        <a href="/">
+                                    
+                                        <Link to="/">
                                             Signup
-                                        </a>
-                                    </span>
+                                        </Link>
+                                
                                 </p>
                             </div>
-                        ) : (
+                        )  (
                             <div>
                                 <p>
                                     <span>Don't have an account yet? </span>
-                                    <span onClick={() => toggleState()}>
-                                        <a href="/login">
+                                    
+                                        <Link to="/login">
                                             Login
-                                        </a>
-                                    </span>
+                                        </Link>
+                                
                                 </p>
                             </div>
                         )
