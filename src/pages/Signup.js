@@ -27,7 +27,9 @@ function Signup() {
 
                 <div>
                     <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-                    <button className="signUpLogin">Already have an account? <Link to="/login">Log in</Link></button> 
+                    <p className="signUpLogin">
+                        Already have an account? <Link to="/login">Log in</Link>
+                    </p> 
                 </div>
             </div>
         </>
