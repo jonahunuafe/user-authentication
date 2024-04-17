@@ -1,9 +1,12 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input";
 import MainNavigation from "../components/MainNavigation";
 
 function Login() {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
  
     function handleSubmit(event) {
         event.preventDefault();
@@ -15,8 +18,8 @@ function Login() {
             <div className="container">
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
-                    <Input label="Email" id="email" type="email" />
-                    <Input label="Password" id="passord" type="password" />
+                    <Input label="Email" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    <Input label="Password" id="passord" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <button className="loginBtn">Log in</button>
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 </form>
