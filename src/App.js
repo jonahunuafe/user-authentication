@@ -23,7 +23,7 @@ function App() {
 
       <div className="App">
         {
-          currentForm === "login" ?   <Login /> : <Signup />
+          currentForm !== "login" ?   <Login /> : <Signup />
         }
       </div>
     </>
