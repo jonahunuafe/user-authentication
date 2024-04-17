@@ -24,7 +24,7 @@ function Login() {
                     <button className="loginBtn">Log in</button>
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 </form>
-                <button>Don't have an account yet? Sign up</button>
+                <p>Don't have an account yet? Sign up</p>
             </div>
         </>
     );

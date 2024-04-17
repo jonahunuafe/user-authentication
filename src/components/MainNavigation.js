@@ -1,10 +1,13 @@
+import React, { useState } from "react";
 import Logo from "../images/istockphoto-1200899039-612x612.jpg";
-import { Link } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
 function MainNavigation() {
+    const [currentForm, setCurrentForm] = useState("login");
 
-    let show = false;
+    const toggleForm = (formName) => {
+        setCurrentForm(formName);
+    }
 
     return (
         <>
@@ -15,26 +18,17 @@ function MainNavigation() {
                 </div>
 
                 <div className={classes.subHeader2}>
-                    { show ? (
-                            <div>
-                                <p>
-                                    <span>Already have an account? </span>
-                                    <Link to="/">
-                                        Signup
-                                    </Link>
-                                </p>
-                            </div>
-                        ) : (
-                            <div>
-                                <p>
-                                    <span>Don't have an account yet? </span>
-                                    <Link to="/login">
-                                        Login
-                                    </Link>
-                                </p>
-                            </div>
-                        )
-                    }  
+                    {
+                        currentForm === "login" ? (
+                        <div>
+                            <p>Don't have an account yet? <span onClick={() => toggleForm("signup")}>Signup</span></p>
+                        </div>
+                    ) : (
+                        <div>
+                            <p>Already have an account? <span onClick={() => toggleForm("login")}>Login</span></p>
+                        </div>
+                    )  
+                    }
                 </div>
             </header>
         </>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import Input from "../components/Input";
 import MainNavigation from "../components/MainNavigation";
@@ -35,9 +34,7 @@ function Signup() {
 
                 <div>
                     <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-                    <p className="signUpLogin">
-                        Already have an account? <Link to="/login">Log in</Link>
-                    </p> 
+                    <button>Already have an account? Log in</button>
                 </div>
             </div>
         </>
