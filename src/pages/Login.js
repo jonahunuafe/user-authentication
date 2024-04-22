@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 
 import Input from "../components/Input";
@@ -7,7 +7,13 @@ import Input from "../components/Input";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { toggleForm } = useContext(GlobalContext);
+    const { state, toggleForm } = useContext(GlobalContext);
+
+    const navigate =useNavigate();
+
+    function navigateHandler() {
+        navigate(state === "login" ? "/" : "/login");
+    }
 
  
     function handleSubmit(event) {
@@ -25,7 +31,23 @@ function Login() {
                     <button className="loginBtn">Log in</button>
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 </form>
-                <p>Don't have an account yet? <span onClick={() => toggleForm("signup")}>Sign up</span></p>
+                <div>
+                    {
+                        state === "login" ? (
+                            <div>
+                                <p>Don't have an account yet?
+                                    <span onClick={() => toggleForm("signup")}> <Link to="/">Signup</Link></span>
+                                </p>
+                            </div>
+                        ) : (
+                            <div>
+                                <p>Already have an account?
+                                    <span onClick={() => toggleForm("login")}> <Link to="/login">Login</Link></span>
+                                </p>
+                            </div>
+                        )  
+                    }
+                </div>
             </div>
         </>
     );

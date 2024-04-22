@@ -1,6 +1,7 @@
 import Logo from "../images/istockphoto-1200899039-612x612.jpg";
 import { GlobalContext } from "../context/GlobalState";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import classes from "./MainNavigation.module.css";
 function MainNavigation() {
@@ -18,11 +19,11 @@ function MainNavigation() {
                     {
                         state === "login" ? (
                         <div>
-                            <p>state.text1<span onClick={() => toggleForm("signup")}> Signup</span></p>
+                            <p>Don't have an account yet? <span onClick={() => toggleForm("signup")}><Link to="/">Signup</Link></span></p>
                         </div>
                     ) : (
                         <div>
-                            <p>state.text2<span onClick={() => toggleForm("login")}> Login</span></p>
+                            <p>Already have an account? <span onClick={() => toggleForm("login")}><Link to="/login">Login</Link></span></p>
                         </div>
                     )  
                     }

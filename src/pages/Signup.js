@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import { GlobalContext } from "../context/GlobalState";
 
@@ -14,9 +15,10 @@ function Signup() {
     function handleSubmit(event) {
         event.preventDefault();
 
-        console.log(firstName, lastName, email, password);
-
-
+        setFirstName("")
+        setLastName("")
+        setEmail("")
+        setPassword("")
     }
 
     return (
@@ -33,21 +35,23 @@ function Signup() {
                     </div> 
                 </form>
 
+                <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
                 <div>
-                    <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-                    <div>
                     {
                         state === "login" ? (
-                        <div>
-                            <p>state.text1<span onClick={() => toggleForm("signup")}> Signup</span></p>
-                        </div>
-                    ) : (
-                        <div>
-                            <p>state.text2<span onClick={() => toggleForm("login")}> Login</span></p>
-                        </div>
-                    )  
+                            <div>
+                                <p>Don't have an account yet?
+                                    <span onClick={() => toggleForm("signup")}> <Link to="/">Signup</Link></span>
+                                </p>
+                            </div>
+                        ) : (
+                            <div>
+                                <p>Already have an account?
+                                    <span onClick={() => toggleForm("login")}> <Link to="/login">Login</Link></span>
+                                </p>
+                            </div>
+                        )  
                     }
-                </div>
                 </div>
             </div>
         </>
