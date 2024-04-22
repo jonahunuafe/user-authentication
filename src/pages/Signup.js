@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
 
 import Input from "../components/Input";
-import MainNavigation from "../components/MainNavigation";
 
 function Signup() {
     const [firstName, setFirstName] = useState("");
@@ -15,11 +15,11 @@ function Signup() {
 
         console.log(firstName, lastName, email, password);
 
+
     }
 
     return (
         <>
-            <MainNavigation />
             <div className="container">
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -34,7 +34,7 @@ function Signup() {
 
                 <div>
                     <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-                    <button>Already have an account? Log in</button>
+                    <p>Already have an account? <Link to="/login">Log in</Link></p>
                 </div>
             </div>
         </>

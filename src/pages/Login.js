@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "../components/Input";
-import MainNavigation from "../components/MainNavigation";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -15,7 +14,6 @@ function Login() {
 
     return (
         <>
-            <MainNavigation />
             <div className="container">
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
@@ -24,7 +22,7 @@ function Login() {
                     <button className="loginBtn">Log in</button>
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 </form>
-                <p>Don't have an account yet? Sign up</p>
+                <p>Don't have an account yet? <Link to="/">Sign up</Link></p>
             </div>
         </>
     );
