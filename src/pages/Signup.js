@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"
-
+import React, { useState, useContext } from "react";
 import Input from "../components/Input";
+import { GlobalContext } from "../context/GlobalState";
 
 function Signup() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const { state, toggleForm } = useContext(GlobalContext);
 
 
     function handleSubmit(event) {
@@ -34,7 +35,19 @@ function Signup() {
 
                 <div>
                     <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-                    <p>Already have an account? <Link to="/login">Log in</Link></p>
+                    <div>
+                    {
+                        state === "login" ? (
+                        <div>
+                            <p>state.text1<span onClick={() => toggleForm("signup")}> Signup</span></p>
+                        </div>
+                    ) : (
+                        <div>
+                            <p>state.text2<span onClick={() => toggleForm("login")}> Login</span></p>
+                        </div>
+                    )  
+                    }
+                </div>
                 </div>
             </div>
         </>

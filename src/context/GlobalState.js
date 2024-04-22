@@ -1,23 +1,19 @@
-import React, { createContext, useReducer } from "react";
-import { Link } from "react-router-dom";
+import React, { createContext, useState } from "react";
 
-const TEXT_1 = (
-   <div>
-      <p>Don't have an account yet? <span><Link to="/">Signup</Link></span></p>
-   </div>
-);
+// const initialState = { login: "login" }
 
-const TEXT_2 = (
-   <div>
-      <p>Already have an account? <span><Link to="/login">Login</Link></span></p>
-   </div>
-);
+export const GlobalContext = createContext();
 
-//initial state
+export const GlobalProvider = ({  children }) => {
+   const [state, setState] = useState("login");
 
-const initialState = {
-   data: [
-      {text1: TEXT_1, link1: TEXT_2},
-      // {text2: , link2: },
-   ]
+   const toggleForm = (formName) => {
+      setState(formName);
+   } 
+ 
+   return (
+      <GlobalContext.Provider value={{ state, setState, toggleForm }}>
+         { children }
+      </GlobalContext.Provider>
+   );
 }

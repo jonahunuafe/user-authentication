@@ -5,6 +5,7 @@ import ErrorPage from './pages/ErrorPage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import PasswordReset from './pages/PasswordReset';
+import { GlobalProvider } from "./context/GlobalState";
 
 const router = createBrowserRouter([
   {path: "/", element: <RootLayout />, errorElement: <ErrorPage />, children: [
@@ -17,7 +18,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <GlobalProvider>
+        <RouterProvider router={router} />
+      </GlobalProvider>
     </>
   );
 }

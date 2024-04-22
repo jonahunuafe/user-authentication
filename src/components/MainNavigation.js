@@ -1,14 +1,10 @@
-import React, { useState } from "react";
 import Logo from "../images/istockphoto-1200899039-612x612.jpg";
-import { Link } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalState";
+import { useContext } from "react";
 
 import classes from "./MainNavigation.module.css";
 function MainNavigation() {
-    const [currentForm, setCurrentForm] = useState("login");
-
-    const toggleForm = (formName) => {
-        setCurrentForm(formName);
-    }
+    const  { state, toggleForm } = useContext(GlobalContext);
 
     return (
         <>
@@ -20,13 +16,13 @@ function MainNavigation() {
 
                 <div className={classes.subHeader2}>
                     {
-                        currentForm ? (
+                        state === "login" ? (
                         <div>
-                            <p>Don't have an account yet? <span><Link to="/">Signup</Link></span></p>
+                            <p>state.text1<span onClick={() => toggleForm("signup")}> Signup</span></p>
                         </div>
                     ) : (
                         <div>
-                            <p>Already have an account? <span><Link to="/login">Login</Link></span></p>
+                            <p>state.text2<span onClick={() => toggleForm("login")}> Login</span></p>
                         </div>
                     )  
                     }

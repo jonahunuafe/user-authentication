@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalState";
 
 import Input from "../components/Input";
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const { toggleForm } = useContext(GlobalContext);
+
  
     function handleSubmit(event) {
         event.preventDefault();
@@ -22,7 +25,7 @@ function Login() {
                     <button className="loginBtn">Log in</button>
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 </form>
-                <p>Don't have an account yet? <Link to="/">Sign up</Link></p>
+                <p>Don't have an account yet? <span onClick={() => toggleForm("signup")}>Sign up</span></p>
             </div>
         </>
     );
