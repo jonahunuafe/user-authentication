@@ -4,21 +4,31 @@ import Input from "../components/Input";
 import { GlobalContext } from "../context/GlobalState";
 
 function Signup() {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [inputFields, setInputFields] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+    });
+    const [errorMessage, setErrorMessage] = useState({});
 
     const { state, toggleForm } = useContext(GlobalContext);
+
+    const validateValues = (inputValues) => {
+        let errors = {};
+        if (inputValues.email.length < 15) {
+          errors.email = "Email is too short";
+        }
+        if (inputValues.password.length < 5) {
+          errors.password = "Password is too short";
+        }
+        return errors;
+    };
 
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        setFirstName("")
-        setLastName("")
-        setEmail("")
-        setPassword("")
     }
 
     return (
@@ -27,10 +37,10 @@ function Signup() {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <h2 className="signup-h2">Create an account</h2>
-                        <Input label="First Name" id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-                        <Input label="Last Name" id="last-name" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)}/>
-                        <Input label="Email" id="email" type="email" value={email}  onChange={(e) => setEmail(e.target.value)}/>
-                        <Input label="Password" id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                        <Input label="First Name" id="first-name" type="text" name="firstname" />
+                        <Input label="Last Name" id="last-name" type="text" name="lastname" />
+                        <Input label="Email" id="email" type="email" name="email" />
+                        <Input label="Password" id="password" type="password" name="password" />
                         <button className="signUpBtn">Sign Up</button>
                     </div> 
                 </form>
