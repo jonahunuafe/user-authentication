@@ -11,11 +11,13 @@ function Signup() {
         password: ""
     });
     const [errorMessage, setErrorMessage] = useState({});
+    const [submitting, setSubmitting] = useState(false);
 
     const { state, toggleForm } = useContext(GlobalContext);
 
+    let errors = {};
+    
     const validateValues = (inputValues) => {
-        let errors = {};
         if (inputValues.email.length < 15) {
           errors.email = "Email is too short";
         }
@@ -25,22 +27,36 @@ function Signup() {
         return errors;
     };
 
+    const handleChange = (e) => {
+        setInputFields({ ...inputFields, [e.target.name]: e.target.value });
+    };
+
 
     function handleSubmit(event) {
         event.preventDefault();
 
+        setErrorMessage(validateValues(inputFields));
+        setSubmitting(true);
     }
 
     return (
         <>
             <div className="container">
+                {Object.keys(errors).length === 0 && submitting ? (
+                    <span className="success">Successfully submitted ✓</span>
+                ) : null}
                 <form onSubmit={handleSubmit}>
                     <div>
                         <h2 className="signup-h2">Create an account</h2>
-                        <Input label="First Name" id="first-name" type="text" name="firstname" />
-                        <Input label="Last Name" id="last-name" type="text" name="lastname" />
-                        <Input label="Email" id="email" type="email" name="email" />
-                        <Input label="Password" id="password" type="password" name="password" />
+                        <Input label="First Name" id="first-name" type="text" name="firstname" value={inputFields.firstName} onChange={handleChange} />
+                        {errorMessage.email ? (
+                            <p className="error">
+                                Email should be at least 15 characters long
+                            </p>
+                        ) : null}
+                        <Input label="Last Name" id="last-name" type="text" name="lastname" value={inputFields.lastName} onChange={handleChange} />
+                        <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
+                        <Input label="Password" id="password" type="password" name="password" value={inputFields.password} onChange={handleChange} />
                         <button className="signUpBtn">Sign Up</button>
                     </div> 
                 </form>
