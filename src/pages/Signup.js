@@ -18,11 +18,17 @@ function Signup() {
     let errors = {};
     
     const validateValues = (inputValues) => {
-        if (inputValues.email.length < 15) {
-          errors.email = "Email is too short";
+        if(inputValues.firstname.length <= 0) {
+            errors.firstname = "First Name is required"
         }
-        if (inputValues.password.length < 5) {
-          errors.password = "Password is too short";
+        if(inputValues.lastName.length <= 0) {
+            errors.lastName = "Last Name is required"
+        }
+        if (inputValues.email.length <= 0) {
+          errors.email = "Email is required";
+        }
+        if (inputValues.password.length <= 0) {
+          errors.password = "Password is required";
         }
         return errors;
     };
@@ -36,6 +42,13 @@ function Signup() {
         event.preventDefault();
 
         setErrorMessage(validateValues(inputFields));
+        setInputFields({
+            ...inputFields,
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: ""
+        })
         setSubmitting(true);
     }
 
@@ -49,14 +62,29 @@ function Signup() {
                     <div>
                         <h2 className="signup-h2">Create an account</h2>
                         <Input label="First Name" id="first-name" type="text" name="firstname" value={inputFields.firstName} onChange={handleChange} />
-                        {errorMessage.email ? (
+                        {errorMessage.firstname && (
                             <p className="error">
-                                Email should be at least 15 characters long
+                                {errorMessage.firstname}
                             </p>
-                        ) : null}
+                        )}
                         <Input label="Last Name" id="last-name" type="text" name="lastname" value={inputFields.lastName} onChange={handleChange} />
+                        {errorMessage.lastName && (
+                            <p className="error">
+                                {errorMessage.lastName}
+                            </p>
+                        )}
                         <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
+                        {errorMessage.email && (
+                            <p className="error">
+                                {errorMessage.email}
+                            </p>
+                        )}
                         <Input label="Password" id="password" type="password" name="password" value={inputFields.password} onChange={handleChange} />
+                        {errorMessage.password && (
+                            <p className="error">
+                                {errorMessage.password}
+                            </p>
+                        )}
                         <button className="signUpBtn">Sign Up</button>
                     </div> 
                 </form>
