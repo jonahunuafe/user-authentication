@@ -15,22 +15,22 @@ function Signup() {
 
     const { state, toggleForm } = useContext(GlobalContext);
 
-    let errors = {};
+    let error = {};
     
     const validateValues = (inputValues) => {
         if(inputValues.firstName.length <= 0) {
-            errors.firstname = "First Name is required"
+            error.firstname = "First Name is required"
         }
         if(inputValues.lastName.length <= 0) {
-            errors.lastname = "Last Name is required"
+            error.lastname = "Last Name is required"
         }
         if (inputValues.email.length <= 0) {
-          errors.email = "Email is required";
+          error.email = "Email is required";
         }
         if (inputValues.password.length <= 0) {
-          errors.password = "Password is required";
+          error.password = "Password is required";
         }
-        return errors;
+        return error;
     };
 
     const handleChange = (e) => {
@@ -55,7 +55,7 @@ function Signup() {
     return (
         <>
             <div className="container">
-                {Object.keys(errors).length === 0 && submitting ? (
+                {Object.keys(error).length === 0 && submitting ? (
                     <span className="success">Successfully submitted ✓</span>
                 ) : null}
                 <form onSubmit={handleSubmit}>

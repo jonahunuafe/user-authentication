@@ -13,10 +13,30 @@ function Login() {
     const [submitted, setSubmitted] = useState(false);
     const { state, toggleForm } = useContext(GlobalContext);
 
- 
+    let error = {};
+
+    const validateValues = (inputValues) => {
+        if(inputValues.email.length <= 0) {
+            error.email = "Email is required"; 
+        }
+        if(inputValues.password.length <= 0) {
+            error.password = "Password is required";
+        }
+        return error;
+    }
+
+    const handleChange = (event) => {
+        setInputFields({
+            ...inputFields,
+            [event.target.name]: event.target.value
+        });
+    }
+
     function handleSubmit(event) {
         event.preventDefault();
 
+        setErrorMessage(validateValues(inputFields));
+        setSubmitted(true);
     }
 
     return (
@@ -24,8 +44,18 @@ function Login() {
             <div className="container">
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
-                    <Input label="Email" id="email" type="email"   />
-                    <Input label="Password" id="passord" type="password" />
+                    <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
+                    {
+                        <p>
+                            {errorMessage.email}
+                        </p>
+                    }
+                    <Input label="Password" id="passord" type="password" name="password" value={inputFields.password} onChange={handleChange} />
+                    {
+                        <p>
+                            {errorMessage.password}
+                        </p>
+                    }
                     <button className="loginBtn">Log in</button>
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 </form>
