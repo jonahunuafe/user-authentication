@@ -18,11 +18,11 @@ function Signup() {
     let errors = {};
     
     const validateValues = (inputValues) => {
-        if(inputValues.firstname.length <= 0) {
+        if(inputValues.firstName.length <= 0) {
             errors.firstname = "First Name is required"
         }
         if(inputValues.lastName.length <= 0) {
-            errors.lastName = "Last Name is required"
+            errors.lastname = "Last Name is required"
         }
         if (inputValues.email.length <= 0) {
           errors.email = "Email is required";
@@ -62,29 +62,29 @@ function Signup() {
                     <div>
                         <h2 className="signup-h2">Create an account</h2>
                         <Input label="First Name" id="first-name" type="text" name="firstname" value={inputFields.firstName} onChange={handleChange} />
-                        {errorMessage.firstname && (
+                        {
                             <p className="error">
                                 {errorMessage.firstname}
                             </p>
-                        )}
+                        }
                         <Input label="Last Name" id="last-name" type="text" name="lastname" value={inputFields.lastName} onChange={handleChange} />
-                        {errorMessage.lastName && (
+                        {
                             <p className="error">
-                                {errorMessage.lastName}
+                                {errorMessage.lastname}
                             </p>
-                        )}
+                        }
                         <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
-                        {errorMessage.email && (
+                        {
                             <p className="error">
                                 {errorMessage.email}
                             </p>
-                        )}
+                        }
                         <Input label="Password" id="password" type="password" name="password" value={inputFields.password} onChange={handleChange} />
-                        {errorMessage.password && (
+                        {
                             <p className="error">
                                 {errorMessage.password}
                             </p>
-                        )}
+                        }
                         <button className="signUpBtn">Sign Up</button>
                     </div> 
                 </form>
