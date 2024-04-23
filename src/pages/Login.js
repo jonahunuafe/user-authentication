@@ -7,10 +7,9 @@ import Input from "../components/Input";
 function Login() {
     const [inputFields, setInputFields] = useState({
         email: "",
-        password: ""
+        password: "",
     });
     const [errorMessage, setErrorMessage] = useState({});
-    const [submitted, setSubmitted] = useState(false);
     const { state, toggleForm } = useContext(GlobalContext);
 
     let error = {};
@@ -36,7 +35,11 @@ function Login() {
         event.preventDefault();
 
         setErrorMessage(validateValues(inputFields));
-        setSubmitted(true);
+        setInputFields({
+            ...inputFields,
+            email: "",
+            password: ""
+        })
     }
 
     return (
@@ -46,13 +49,13 @@ function Login() {
                 <form onSubmit={handleSubmit}>
                     <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
                     {
-                        <p>
+                        <p className="error">
                             {errorMessage.email}
                         </p>
                     }
                     <Input label="Password" id="passord" type="password" name="password" value={inputFields.password} onChange={handleChange} />
                     {
-                        <p>
+                        <p className="error">
                             {errorMessage.password}
                         </p>
                     }

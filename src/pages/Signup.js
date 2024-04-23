@@ -11,7 +11,6 @@ function Signup() {
         password: ""
     });
     const [errorMessage, setErrorMessage] = useState({});
-    const [submitting, setSubmitting] = useState(false);
 
     const { state, toggleForm } = useContext(GlobalContext);
 
@@ -49,15 +48,11 @@ function Signup() {
             email: "",
             password: ""
         })
-        setSubmitting(true);
     }
 
     return (
         <>
             <div className="container">
-                {Object.keys(error).length === 0 && submitting ? (
-                    <span className="success">Successfully submitted ✓</span>
-                ) : null}
                 <form onSubmit={handleSubmit}>
                     <div>
                         <h2 className="signup-h2">Create an account</h2>
