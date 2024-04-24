@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Button({ btnText, onSubmit, className, children }) {
+function Button({ btnText, className, children }) {
   return (
-      <button className={className} onSubmit={onSubmit}>
-         {btnText} {children}
-      </button>
+    <button className={className}>
+        {btnText} {children}
+    </button>
   );
 }
 

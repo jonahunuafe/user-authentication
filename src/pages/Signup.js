@@ -45,7 +45,7 @@ function Signup() {
     return (
         <>
             <div className="authContainer">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className={classes.container}>
                         <h2 className="signup-h2">Create an account</h2>
                         <Input label="First Name" id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
@@ -72,7 +72,7 @@ function Signup() {
                                 {password.length === 0 ? errorMessage.password : null}
                             </p>
                         }
-                        <Button btnText="Signup" className="button" onSubmit={handleSubmit} />
+                        <Button btnText="Signup" className="button" />
                     </div> 
                 </form>
 
