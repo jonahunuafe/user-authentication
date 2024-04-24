@@ -45,7 +45,7 @@ function Signup() {
     return (
         <>
             <div className="authContainer">
-                <form onSubmit={handleSubmit}>
+                <form>
                     <div className={classes.container}>
                         <h2 className="signup-h2">Create an account</h2>
                         <Input label="First Name" id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
@@ -72,12 +72,12 @@ function Signup() {
                                 {password.length === 0 ? errorMessage.password : null}
                             </p>
                         }
-                        <Button btnText="Signup" className="button" />
+                        <Button btnText="Signup" className="button" onSubmit={handleSubmit} />
                     </div> 
                 </form>
 
                 <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
-                <div>
+                <div className="signupLabel">
                     {
                         state === "login" ? (
                             <div>
