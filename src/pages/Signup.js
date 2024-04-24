@@ -4,50 +4,40 @@ import Input from "../components/Input";
 import { GlobalContext } from "../context/GlobalState";
 
 function Signup() {
-    const [inputFields, setInputFields] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: ""
-    });
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState({});
 
     const { state, toggleForm } = useContext(GlobalContext);
 
     let error = {};
     
-    const validateValues = (inputValues) => {
-        if(inputValues.firstName.length <= 0) {
+    const validateValues = () => {
+        if(firstName.length === 0) {
             error.firstname = "First Name is required"
         }
-        if(inputValues.lastName.length <= 0) {
+        if(lastName.length === 0) {
             error.lastname = "Last Name is required"
         }
-        if (inputValues.email.length <= 0) {
+        if (email.length === 0) {
           error.email = "Email is required";
         }
-        if (inputValues.password.length <= 0) {
+        if (password.length === 0) {
           error.password = "Password is required";
         }
         return error;
     };
 
-    const handleChange = (e) => {
-        setInputFields({ ...inputFields, [e.target.name]: e.target.value });
-    };
-
-
     function handleSubmit(event) {
         event.preventDefault();
 
-        setErrorMessage(validateValues(inputFields));
-        setInputFields({
-            ...inputFields,
-            firstName: "",
-            lastName: "",
-            email: "",
-            password: ""
-        })
+        setErrorMessage(validateValues());
+        setFirstName("")
+        setLastName("")
+        setEmail("")
+        setPassword("")
     }
 
     return (
@@ -56,28 +46,28 @@ function Signup() {
                 <form onSubmit={handleSubmit}>
                     <div>
                         <h2 className="signup-h2">Create an account</h2>
-                        <Input label="First Name" id="first-name" type="text" name="firstname" value={inputFields.firstName} onChange={handleChange} />
+                        <Input label="First Name" id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         {
                             <p className="error">
-                                {errorMessage.firstname}
+                                {firstName.length === 0 ? errorMessage.firstname : null}
                             </p>
                         }
-                        <Input label="Last Name" id="last-name" type="text" name="lastname" value={inputFields.lastName} onChange={handleChange} />
+                        <Input label="Last Name" id="last-name" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
                         {
                             <p className="error">
-                                {errorMessage.lastname}
+                                {lastName.length === 0 ? errorMessage.lastname : null}
                             </p>
                         }
-                        <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
+                        <Input label="Email" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         {
                             <p className="error">
-                                {errorMessage.email}
+                                {email.length === 0 ? errorMessage.email : null}
                             </p>
                         }
-                        <Input label="Password" id="password" type="password" name="password" value={inputFields.password} onChange={handleChange} />
+                        <Input label="Password" id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         {
                             <p className="error">
-                                {errorMessage.password}
+                                {password.length === 0 ? errorMessage.password : null}
                             </p>
                         }
                         <button className="signUpBtn">Sign Up</button>
