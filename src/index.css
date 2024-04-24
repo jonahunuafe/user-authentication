@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,13 +8,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
+.authContainer {
   margin: auto;
   width: 90%;
   padding-top: 4rem;
 }
 
-.container > p {
+.authContainer > p {
   margin-top: 2.3rem;
 }
 
@@ -30,16 +31,7 @@ p {
 
 a {
   text-decoration: none;
-}
-
-button {
-  padding: 1rem;
-  width: 100%;
-  outline: none;
-  border: transparent;
-  font-size: 1rem;
-  border-radius: 0.3rem;
-}
+} 
 
 .signUpBtn {
   margin-top: 3rem;
@@ -51,14 +43,26 @@ button {
   margin-bottom: 3rem;
 }
 
-.loginBtn, .resetBtn, .signUpBtn {
+/* .loginBtn, .resetBtn, .signUpBtn {
   background-color: blue;
   color: white;
-}
+} */
 
 .loginBtn {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.backToLogin {
+  background-color: #F5F5F5;
+  color: #3876BF;
+  padding: 1rem;
+  outline: none;
+  border: transparent;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  width: 90.5%;
+  text-align: center;
 }
 
 .signUpBtn:hover, .loginBtn:hover {
@@ -70,14 +74,15 @@ button {
   color: grey;
 }
 
+.error {
+  text-align: left;
+}
+
 @media(min-width: 768px) {
-  button {
-    width: 38.8%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .authContainer {
+    width: 40%;
     margin: auto;
-    transform: translateX(-8px);
+    outline: 1px solid red;
   }
 
   .signup-h2 {

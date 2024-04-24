@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
+import classes from "../styles/globalstyle.css";
 
 import Input from "../components/Input";
+import Button from "../components/Button";
 
 function Login() {
     const [inputFields, setInputFields] = useState({
@@ -44,9 +46,10 @@ function Login() {
 
     return (
         <>
-            <div className="container">
+            <div className="authContainer">
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
+                    <div className={classes.container}>  
                     <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
                     {
                         <p className="error">
@@ -59,8 +62,9 @@ function Login() {
                             {errorMessage.password}
                         </p>
                     }
-                    <button className="loginBtn">Log in</button>
+                    <Button btnText="Login" className="button" />
                     <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
+                    </div>
                 </form>
                 <div>
                     {

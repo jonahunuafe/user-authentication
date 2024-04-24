@@ -1,0 +1,40 @@
+input {
+   display: block;
+   padding: 4%;
+   border: 2px solid #E5E1DA;
+   outline: none;
+   border-radius: 0.3rem;
+   width: 90%;
+   margin-top: 0.5rem;
+   margin-bottom: 1.5rem;
+}
+
+#label {
+   color: #1A120B;
+   font-weight: 400;
+}
+
+.button {
+   padding: 1rem;
+   outline: none;
+   border: transparent;
+   font-size: 1rem;
+   border-radius: 0.3rem;
+   background-color: blue; 
+   color: #fff;
+   width: 90.5%;
+   text-align: center;
+}
+
+@media(min-width: 768px) {
+   input {
+      padding: 3%;
+      /* margin: auto; */
+   }
+
+   /* .container {
+      width: 40%;
+      margin: auto;
+      outline: 2px solid green;
+   } */
+}

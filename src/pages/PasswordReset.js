@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
+import Button from "../components/Button";
 
 function PasswordReset() {
     const navigate = useNavigate();
@@ -9,17 +10,13 @@ function PasswordReset() {
     }
 
     return (
-        <div className="container">
+        <div className="authContainer">
             <form>
                 <h2 className="reset-h2">Send password reset link</h2>
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
                 <Input label="Email" id="email" type="email" />
-                <p>
-                    <button className="resetBtn">Send</button>
-                </p>
-                <p>
-                    <button onClick={navigateHandler}>Back to Login</button>
-                </p>
+                <Button btnText="Send" className="button" />
+                <Button onClick={navigateHandler} className="backToLogin">Back to Login</Button>
             </form>
         </div> 
     );

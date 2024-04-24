@@ -1,8 +1,8 @@
-import classes from "./Input.module.css";
+import classes from "../styles/globalstyle.css";
 
 export default function Input({ label, id, onChange, ...props }) {
     return (
-        <div className={classes.inputContainer}>
+        <div>
             <label htmlFor={id} id={classes.label}>{label}</label>
             <input id={id} onChange={onChange} {...props} />
         </div> 

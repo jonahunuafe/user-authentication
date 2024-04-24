@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import { GlobalContext } from "../context/GlobalState";
+import classes from "../styles/globalstyle.css";
+import Button from "../components/Button";
 
 function Signup() {
     const [firstName, setFirstName] = useState("");
@@ -42,9 +44,9 @@ function Signup() {
 
     return (
         <>
-            <div className="container">
+            <div className="authContainer">
                 <form onSubmit={handleSubmit}>
-                    <div>
+                    <div className={classes.container}>
                         <h2 className="signup-h2">Create an account</h2>
                         <Input label="First Name" id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         {
@@ -70,7 +72,7 @@ function Signup() {
                                 {password.length === 0 ? errorMessage.password : null}
                             </p>
                         }
-                        <button className="signUpBtn">Sign Up</button>
+                        <Button btnText="Signup" className="button" />
                     </div> 
                 </form>
 
