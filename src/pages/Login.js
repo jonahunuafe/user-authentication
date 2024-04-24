@@ -53,13 +53,13 @@ function Login() {
                     <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
                     {
                         <p className="error">
-                            {errorMessage.email}
+                            {inputFields.email.length === 0 ? errorMessage.email : null}
                         </p>
                     }
                     <Input label="Password" id="passord" type="password" name="password" value={inputFields.password} onChange={handleChange} />
                     {
                         <p className="error">
-                            {errorMessage.password}
+                            {inputFields.password.length === 0 ? errorMessage.password : null}
                         </p>
                     }
                     <Button btnText="Login" className="button" />
