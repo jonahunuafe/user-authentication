@@ -34,7 +34,9 @@ function PasswordReset() {
                 <h2 className="reset-h2">Send password reset link</h2>
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
                 <Input label="Email" id="email" type="email" />
-                {email.length === 0 ? errorMessage : null}
+                <p className="error">
+                    {email.length === 0 ? errorMessage : null}
+                </p>
                 <Button btnText="Send" className="button" />
                 <Button onClick={navigateHandler} className="backToLogin">Back to Login</Button>
             </form>

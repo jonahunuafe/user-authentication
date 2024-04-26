@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import { GlobalContext } from "../context/GlobalState";
-import classes from "../styles/globalstyle.css";
 import Button from "../components/Button";
 
 function Signup() {
@@ -46,7 +45,7 @@ function Signup() {
         <>
             <div className="authContainer">
                 <form onSubmit={handleSubmit}>
-                    <div className={classes.container}>
+                    <div className="container">
                         <h2 className="signup-h2">Create an account</h2>
                         <Input label="First Name" id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
                         {
