@@ -2,7 +2,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2%;
+    padding: 5%;
     border-bottom: 1px solid lightgray;
 }
 
@@ -27,9 +27,19 @@ p {
     font-family: "Roboto Condensed", sans-serif;
 }
 
-.subHeader2 > p > span {
+.subHeader2 > p {
     display: none;  
 }
+
+.subHeader2 > span {
+    margin-right: 0.3rem;
+}
+
+.subHeader2 > span > a {
+    color: #525CEB;
+    font-weight: 500;
+}
+
 
 @media(min-width: 768px) {
     header {
@@ -40,18 +50,20 @@ p {
         width: 10%;
     }
 
+    .subHeader2 > p {
+        display: block;
+    }
+
+    .subHeader2 > span {
+        margin-bottom: 0.3rem;
+        margin-left: 0.3rem;
+    }
+
     .subHeader2 {
         width: 100%;
         display: flex;
+        align-items: center;
         justify-content: right;
-    }
-
-    .subHeader2 > p {
-        display: inline-flex;
-    }
-
-    .subHeader2 > p > span {
-        display: block;
     }
 }
 

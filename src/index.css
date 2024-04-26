@@ -46,7 +46,7 @@ a {
   border: transparent;
   font-size: 1rem;
   border-radius: 0.3rem;
-  width: 96.55%;
+  width: 98%;
   text-align: center;
   cursor: pointer;
   margin-top: 1rem;
@@ -84,6 +84,10 @@ a {
 
   .signUpLogin {
     margin-top: 2rem;
+  }
+
+  .backToLogin {
+    width: 96.55%;
   }
   
 }

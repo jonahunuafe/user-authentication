@@ -17,15 +17,22 @@ function MainNavigation() {
 
                 <div className={classes.subHeader2}>
                     {
-                        state === "login" ? (
-                        <div>
-                            <p>Don't have an account yet? <span onClick={() => toggleForm("signup")}><Link to="/">Signup</Link></span></p>
-                        </div>
-                    ) : (
-                        <div>
-                            <p>Already have an account? <span onClick={() => toggleForm("login")}><Link to="/login">Login</Link></span></p>
-                        </div>
-                    )  
+                        state === "login" ? 
+                        (
+                            <>
+                                <p>Don't have an account yet?</p>
+                                <span onClick={() => toggleForm("signup")}>
+                                    <Link to="/"> Signup</Link>
+                                </span> 
+                            </>  
+                        ) : (
+                            <>
+                                <p>Already have an account?</p>
+                                <span onClick={() => toggleForm("login")}>
+                                    <Link to="/login"> Login</Link>
+                                </span>
+                            </>
+                        )  
                     }
                 </div>
             </header>
