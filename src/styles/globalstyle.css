@@ -37,10 +37,7 @@ button:hover {
    transform: translateY(-90%);
    font-size: 0.8rem;
    font-weight: 500;
-}
-
-.invalidBorder {
-   border: 2px solid #FC4100;
+   text-align: left;
 }
 
 @media(min-width: 768px) {

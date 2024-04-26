@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
-// import classes from "../styles/globalstyle.css"
 
 import Input from "../components/Input";
 import Button from "../components/Button";

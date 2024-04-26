@@ -6,6 +6,7 @@ import Button from "../components/Button";
 function PasswordReset() {
     const [email, setEmail] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+
     const navigate = useNavigate();
 
     function navigateHandler() {
@@ -25,7 +26,7 @@ function PasswordReset() {
         event.preventDefault();
 
         setErrorMessage(validateValues());
-        setEmail("")
+        setEmail("");
     }
 
     return (
@@ -33,13 +34,13 @@ function PasswordReset() {
             <form onSubmit={handleSubmit}>
                 <h2 className="reset-h2">Send password reset link</h2>
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
-                <Input label="Email" id="email" type="email" />
+                <Input label="Email" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <p className="error">
                     {email.length === 0 ? errorMessage : null}
                 </p>
-                <Button btnText="Send" className="button" />
-                <Button onClick={navigateHandler} className="backToLogin">Back to Login</Button>
+                <Button btnText="Send" className="button" type="submit" />
             </form>
+            <Button onClick={navigateHandler} className="backToLogin" type="button">Back to Login</Button>
         </div> 
     );
 }

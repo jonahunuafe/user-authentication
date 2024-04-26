@@ -33,16 +33,6 @@ a {
   text-decoration: none;
 } 
 
-/* .signUpBtn {
-  margin-top: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.signUpLogin {
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-} */
-
 .loginBtn {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
@@ -56,9 +46,10 @@ a {
   border: transparent;
   font-size: 1rem;
   border-radius: 0.3rem;
-  width: 90.5%;
+  width: 96.55%;
   text-align: center;
   cursor: pointer;
+  margin-top: 1rem;
 }
 
 .reset-h2, .reset-h4 {
@@ -68,10 +59,6 @@ a {
 
 .signupLabel {
   margin-bottom: 3.5rem;
-}
-
-.error {
-  text-align: left;
 }
 
 @media(min-width: 768px) {
