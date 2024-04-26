@@ -14,9 +14,9 @@ function Signup() {
 
     const { state, toggleForm } = useContext(GlobalContext);
 
-    let error = {};
-    
     const validateValues = () => {
+        let error = {};
+        
         if(firstName.length === 0) {
             error.firstname = "First Name is required"
         }

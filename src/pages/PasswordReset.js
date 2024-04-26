@@ -13,9 +13,10 @@ function PasswordReset() {
         navigate("/login");
     }
 
-    let error = "";
-
+    
     const validateValues = () => {
+        let error = "";
+
         if (email.length === 0) {
           error = "Email is required";
         }
@@ -36,7 +37,8 @@ function PasswordReset() {
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
                 <Input 
                     label="Email" 
-                    id="email" type="email" 
+                    id="email" 
+                    type="email" 
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
                 />
@@ -48,7 +50,9 @@ function PasswordReset() {
             <Button 
                 onClick={navigateHandler} 
                 className="backToLogin" 
-                type="button">Back to Login
+                type="button"
+            >
+                Back to Login
             </Button>
         </div> 
     );

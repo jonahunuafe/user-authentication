@@ -14,9 +14,10 @@ function Login() {
     const [errorMessage, setErrorMessage] = useState({});
     const { state, toggleForm } = useContext(GlobalContext);
 
-    let error = {};
-
+    
     const validateValues = (inputValues) => {
+        let error = {};
+        
         if(inputValues.email.length === 0) {
             error.email = "Email is required"; 
         }
