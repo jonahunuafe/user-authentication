@@ -61,6 +61,12 @@ a {
   margin-bottom: 3.5rem;
 }
 
+.account-exist {
+  background-color: #F5F5F5;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+}
+
 @media(min-width: 768px) {
   .authContainer {
     width: 40%;

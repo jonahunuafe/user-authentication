@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
-import { GlobalContext } from "../context/GlobalState";
 import Button from "../components/Button";
+
+import { GlobalContext } from "../context/GlobalState";
 
 function Signup() {
     const [firstName, setFirstName] = useState("");
@@ -47,25 +48,49 @@ function Signup() {
                 <form onSubmit={handleSubmit}>
                     <div className="container">
                         <h2 className="signup-h2">Create an account</h2>
-                        <Input label="First Name" id="first-name" type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                        <Input 
+                            label="First Name" 
+                            id="first-name" 
+                            type="text" 
+                            value={firstName} 
+                            onChange={(e) => setFirstName(e.target.value)} 
+                        />
                         {
                             <p className="error">
                                 {firstName.length === 0 ? errorMessage.firstname : null}
                             </p>
                         }
-                        <Input label="Last Name" id="last-name" type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                        <Input 
+                            label="Last Name" 
+                            id="last-name" 
+                            type="text" 
+                            value={lastName} 
+                            onChange={(e) => setLastName(e.target.value)} 
+                        />
                         {
                             <p className="error">
                                 {lastName.length === 0 ? errorMessage.lastname : null}
                             </p>
                         }
-                        <Input label="Email" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <Input 
+                            label="Email" 
+                            id="email" 
+                            type="email" 
+                            value={email} 
+                            onChange={(e) => setEmail(e.target.value)} 
+                        />
                         {
                             <p className="error">
                                 {email.length === 0 ? errorMessage.email : null}
                             </p>
                         }
-                        <Input label="Password" id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <Input 
+                            label="Password" 
+                            id="password" 
+                            type="password" 
+                            value={password} 
+                            onChange={(e) => setPassword(e.target.value)} 
+                        />
                         {
                             <p className="error">
                                 {password.length === 0 ? errorMessage.password : null}
@@ -75,21 +100,26 @@ function Signup() {
                     </div> 
                 </form>
 
-                <p>By clicking "Sign up" you agree to our <a href="http://">Terms & Privacy Policy</a></p>
+                <p>
+                    By clicking "Sign up" you agree to our 
+                    <a href="http://"> Terms & Privacy Policy</a>
+                </p>
                 <div className="signupLabel">
                     {
                         state === "login" ? (
-                            <div>
-                                <p>Don't have an account yet?
-                                    <span onClick={() => toggleForm("signup")}> <Link to="/">Signup</Link></span>
-                                </p>
-                            </div>
+                            <p>
+                                Don't have an account yet?
+                                <span onClick={() => toggleForm("signup")}>
+                                    <Link to="/"> Signup</Link>
+                                </span>
+                            </p>
                         ) : (
-                            <div>
-                                <p>Already have an account?
-                                    <span onClick={() => toggleForm("login")}> <Link to="/login">Login</Link></span>
-                                </p>
-                            </div>
+                            <p className="account-exist">
+                                Already have an account?
+                                <span onClick={() => toggleForm("login")}> 
+                                    <Link to="/login"> Login</Link>
+                                </span>
+                            </p>
                         )  
                     }
                 </div>

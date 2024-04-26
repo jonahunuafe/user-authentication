@@ -34,13 +34,22 @@ function PasswordReset() {
             <form onSubmit={handleSubmit}>
                 <h2 className="reset-h2">Send password reset link</h2>
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
-                <Input label="Email" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input 
+                    label="Email" 
+                    id="email" type="email" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} 
+                />
                 <p className="error">
                     {email.length === 0 ? errorMessage : null}
                 </p>
                 <Button btnText="Send" className="button" type="submit" />
             </form>
-            <Button onClick={navigateHandler} className="backToLogin" type="button">Back to Login</Button>
+            <Button 
+                onClick={navigateHandler} 
+                className="backToLogin" 
+                type="button">Back to Login
+            </Button>
         </div> 
     );
 }
