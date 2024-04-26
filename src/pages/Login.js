@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { GlobalContext } from "../context/GlobalState";
-
 import Input from "../components/Input";
 import Button from "../components/Button";
+
+import { GlobalContext } from "../context/GlobalState";
+
 
 function Login() {
     const [inputFields, setInputFields] = useState({
@@ -16,10 +17,10 @@ function Login() {
     let error = {};
 
     const validateValues = (inputValues) => {
-        if(inputValues.email.length <= 0) {
+        if(inputValues.email.length === 0) {
             error.email = "Email is required"; 
         }
-        if(inputValues.password.length <= 0) {
+        if(inputValues.password.length === 0) {
             error.password = "Password is required";
         }
         return error;
@@ -48,37 +49,50 @@ function Login() {
             <div className="authContainer">
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
-                    <div className="container">  
-                    <Input label="Email" id="email" type="email" name="email" value={inputFields.email} onChange={handleChange} />
+                    <Input 
+                        label="Email" 
+                        id="email" 
+                        type="email" 
+                        name="email" 
+                        value={inputFields.email} 
+                        onChange={handleChange} 
+                    />
                     {
                         <p className="error">
                             {inputFields.email.length === 0 ? errorMessage.email : null}
                         </p>
                     }
-                    <Input label="Password" id="passord" type="password" name="password" value={inputFields.password} onChange={handleChange} />
+                    <Input 
+                        label="Password" 
+                        id="passord" 
+                        type="password" 
+                        name="password"
+                        value={inputFields.password} 
+                        onChange={handleChange} 
+                    />
                     {
                         <p className="error">
                             {inputFields.password.length === 0 ? errorMessage.password : null}
                         </p>
                     }
                     <Button btnText="Login" className="button" />
-                    <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
-                    </div>
                 </form>
+                <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 <div>
                     {
                         state === "login" ? (
-                            <div>
-                                <p>Don't have an account yet?
-                                    <span onClick={() => toggleForm("signup")}> <Link to="/">Signup</Link></span>
-                                </p>
-                            </div>
+                            <p>
+                                Don't have an account yet?
+                                <span onClick={() => toggleForm("signup")}> 
+                                    <Link to="/"> Signup</Link>
+                                </span>
+                            </p>  
                         ) : (
-                            <div>
-                                <p>Already have an account?
-                                    <span onClick={() => toggleForm("login")}> <Link to="/login">Login</Link></span>
-                                </p>
-                            </div>
+                            <p>Already have an account?
+                                <span onClick={() => toggleForm("login")}> 
+                                    <Link to="/login"> Login</Link>
+                                </span>
+                            </p> 
                         )  
                     }
                 </div>
