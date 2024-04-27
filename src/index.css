@@ -42,7 +42,7 @@ a {
   border: transparent;
   font-size: 1rem;
   border-radius: 0.3rem;
-  width: 98%;
+  width: 100%;
   text-align: center;
   cursor: pointer;
   margin-top: 1rem;
@@ -65,17 +65,12 @@ a {
 
 @media(min-width: 768px) {
   .authContainer {
-    width: 40%;
+    width: 35%;
     margin: auto;
   }
 
   .signup-h2 {
     margin-top: 2rem;
   }
-
-  .backToLogin {
-    width: 96.55%;
-  }
-  
 }
 

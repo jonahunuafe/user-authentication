@@ -4,7 +4,7 @@ input {
    border: 2px solid #E5E1DA;
    outline: none;
    border-radius: 0.3rem;
-   width: 90%;
+   width: 91%;
    margin-top: 0.5rem;
    margin-bottom: 1.4rem;
 }
@@ -22,7 +22,7 @@ input {
    border-radius: 0.3rem;
    background-color: blue; 
    color: #fff;
-   width: 98.8%;
+   width: 100%;
    text-align: center;
    margin-top: 0.8rem;
    cursor: pointer;
@@ -43,10 +43,7 @@ button:hover {
 @media(min-width: 768px) {
    input {
       padding: 3%;
-   }
-
-   .button {
-      width: 96.5%;
+      width: 93.2%;
    }
    
 }
