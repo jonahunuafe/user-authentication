@@ -13,9 +13,9 @@ const router = createBrowserRouter([
   {path: "/", element: <RootLayout />, errorElement: <ErrorPage />, children: [
     {index: true, element: <Signup/>},
     {path: "/login", element: <Login />},
+    {path: "/home", element: <Home />}
   ]},
   {path: "/login/passwordreset", element: <PasswordReset />},
-  {path: "/home", element: <Home />}
 ]);
 
 function App() {

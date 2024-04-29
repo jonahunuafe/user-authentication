@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { useAuth } from "../firebaseContext/authContext";
+import { doPasswordReset } from "../firebase/auth";
 
 function PasswordReset() {
+    const { userLoggedIn, setUserLoggedIn } = useAuth();
+
     const [email, setEmail] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [isSigningIn, setIsSigningIn] = useState(false);
 
     const navigate = useNavigate();
 
@@ -23,8 +28,14 @@ function PasswordReset() {
         return error;
     };
 
-    function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if(!isSigningIn) {
+            setIsSigningIn(true);
+            setUserLoggedIn(true);
+            await doPasswordReset(email);
+        }
 
         setErrorMessage(validateValues());
         setEmail("");
@@ -32,6 +43,9 @@ function PasswordReset() {
 
     return (
         <div className="authContainer">
+            <div className="resetLink">
+                {userLoggedIn && <p>A reset link has being sent to your email</p>}
+            </div>
             <form onSubmit={handleSubmit}>
                 <h2 className="reset-h2">Send password reset link</h2>
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
