@@ -109,9 +109,5 @@ a {
   .loggedInMessage {
     height: 50vh;
   }
-
-  .logoutBtn {
-    width: 7%;
-  }
 }
 

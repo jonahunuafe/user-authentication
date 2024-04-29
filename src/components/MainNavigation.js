@@ -9,6 +9,7 @@ import classes from "./MainNavigation.module.css";
 function MainNavigation() {
     const  { state, toggleForm } = useContext(GlobalContext);
     const { userLoggedIn } = useAuth();
+
     const navigate = useNavigate();
 
     function handleNavigate() {
@@ -24,35 +25,36 @@ function MainNavigation() {
                     <h2 className={classes.thread}>Threadlist</h2>
                 </div>
 
-                
-        
-                    <div>
-                        {
-                            userLoggedIn ? <button onClick={handleNavigate} className="logoutBtn">Logout</button> :
-                        
-                        <div className={classes.subHeader2}>
-                        {
-                            state === "login" ? 
-                            (
-                                <>
-                                    <p>Don't have an account yet?</p>
-                                    <span onClick={() => toggleForm("signup")}>
-                                        <Link to="/"> Signup</Link>
-                                    </span> 
-                                </>  
-                            ) : (
-                                <>
-                                    <p>Already have an account?</p>
-                                    <span onClick={() => toggleForm("login")}>
-                                        <Link to="/login"> Login</Link>
-                                    </span>
-                                </>
-                            )  
-                        }
-                        </div>
-                        }
-                    </div>
-                
+                <div>
+                    {userLoggedIn && state ? 
+                        (
+                            <button onClick={handleNavigate} className="logoutBtn">
+                                Logout
+                            </button>
+                        ) : (
+                            <div className={classes.subHeader2}>
+                            {
+                                state === "login" ? 
+                                (
+                                    <>
+                                        <p>Don't have an account yet?</p>
+                                        <span onClick={() => toggleForm("signup")}>
+                                            <Link to="/"> Signup</Link>
+                                        </span> 
+                                    </>  
+                                ) : (
+                                    <>
+                                        <p>Already have an account?</p>
+                                        <span onClick={() => toggleForm("login")}>
+                                            <Link to="/login"> Login</Link>
+                                        </span>
+                                    </>
+                                )  
+                            }
+                            </div>
+                        )
+                    }
+                </div>
             </header>
         </>
     );
