@@ -15,7 +15,7 @@ function PasswordReset() {
     const navigate = useNavigate();
 
     function navigateHandler() {
-        navigate("/login");
+        navigate("/");
     }
 
     
@@ -43,9 +43,11 @@ function PasswordReset() {
 
     return (
         <div className="authContainer">
-            <div className="resetLink">
-                {userLoggedIn && <p>A reset link has being sent to your email</p>}
-            </div>
+            {userLoggedIn && 
+                <p className="resetLink">
+                    A reset link has being sent to your email
+                </p>
+            }
             <form onSubmit={handleSubmit}>
                 <h2 className="reset-h2">Send password reset link</h2>
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
@@ -66,7 +68,7 @@ function PasswordReset() {
                 className="backToLogin" 
                 type="button"
             >
-                Back to Login
+                Back to Signup
             </Button>
         </div> 
     );

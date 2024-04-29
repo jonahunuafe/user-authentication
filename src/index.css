@@ -79,6 +79,23 @@ a {
   font-weight: 600;
 }
 
+.resetLink {
+  background-color: #FBFFDC;
+  color: #54B435;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.logoutBtn {
+  background-color: #525CEB;
+  color: #fff;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+
 @media(min-width: 768px) {
   .authContainer {
     width: 35%;
@@ -91,6 +108,10 @@ a {
 
   .loggedInMessage {
     height: 50vh;
+  }
+
+  .logoutBtn {
+    width: 7%;
   }
 }
 

@@ -24,29 +24,35 @@ function MainNavigation() {
                     <h2 className={classes.thread}>Threadlist</h2>
                 </div>
 
-                {
-                    userLoggedIn ? <button onClick={handleNavigate}>Logout</button> :
-                <div className={classes.subHeader2}>
-                    {
-                        state === "login" ? 
-                        (
-                            <>
-                                <p>Don't have an account yet?</p>
-                                <span onClick={() => toggleForm("signup")}>
-                                    <Link to="/"> Signup</Link>
-                                </span> 
-                            </>  
-                        ) : (
-                            <>
-                                <p>Already have an account?</p>
-                                <span onClick={() => toggleForm("login")}>
-                                    <Link to="/login"> Login</Link>
-                                </span>
-                            </>
-                        )  
-                    }
-                </div>
-                }
+                
+        
+                    <div>
+                        {
+                            userLoggedIn ? <button onClick={handleNavigate} className="logoutBtn">Logout</button> :
+                        
+                        <div className={classes.subHeader2}>
+                        {
+                            state === "login" ? 
+                            (
+                                <>
+                                    <p>Don't have an account yet?</p>
+                                    <span onClick={() => toggleForm("signup")}>
+                                        <Link to="/"> Signup</Link>
+                                    </span> 
+                                </>  
+                            ) : (
+                                <>
+                                    <p>Already have an account?</p>
+                                    <span onClick={() => toggleForm("login")}>
+                                        <Link to="/login"> Login</Link>
+                                    </span>
+                                </>
+                            )  
+                        }
+                        </div>
+                        }
+                    </div>
+                
             </header>
         </>
     );

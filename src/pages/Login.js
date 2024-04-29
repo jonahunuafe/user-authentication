@@ -57,7 +57,7 @@ function Login() {
     
     return (
         <>
-            {userLoggedIn && (<Navigate to={"/home"} replace={false} />)}
+            {userLoggedIn && (<Navigate to={"/home"} replace={true} />)}
             <div className="authContainer">
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
