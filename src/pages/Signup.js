@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import { doCreateUserWithEmailAndPassword } from "../firebase/auth";
 
 import { GlobalContext } from "../context/GlobalState";
 
@@ -11,6 +12,7 @@ function Signup() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState({});
+    const [isRegistering, setIsRegistering] = useState(false);
 
     const { state, toggleForm } = useContext(GlobalContext);
 
@@ -32,8 +34,12 @@ function Signup() {
         return error;
     };
 
-    function handleSubmit(event) {
+    const handleSubmit  = async (event) => {
         event.preventDefault();
+        if(!isRegistering) {
+            setIsRegistering(true)
+            await doCreateUserWithEmailAndPassword(email, password);
+        }
 
         setErrorMessage(validateValues());
         setFirstName("")

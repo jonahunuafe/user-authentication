@@ -4,22 +4,27 @@ import RootLayout from './routes/Root';
 import ErrorPage from './pages/ErrorPage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
+import Home from "./components/Home";
 import PasswordReset from './pages/PasswordReset';
 import { GlobalProvider } from "./context/GlobalState";
+import { AuthProvider } from "./firebaseContext/authContext";
 
 const router = createBrowserRouter([
   {path: "/", element: <RootLayout />, errorElement: <ErrorPage />, children: [
     {index: true, element: <Signup/>},
     {path: "/login", element: <Login />},
   ]},
-  {path: "/login/passwordreset", element: <PasswordReset />}
+  {path: "/login/passwordreset", element: <PasswordReset />},
+  {path: "/home", element: <Home />}
 ]);
 
 function App() {
   return (
     <>
       <GlobalProvider>
-        <RouterProvider router={router} />
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
       </GlobalProvider>
     </>
   );

@@ -63,6 +63,22 @@ a {
   border-radius: 0.3rem;
 }
 
+.loggedInMessage {
+  width: 90%;
+  height: 15vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #FBFFDC;
+  margin-top: 5rem;
+  border-radius: 0.5rem;
+}
+
+.loggedInMessage > p > span {
+  font-weight: 600;
+}
+
 @media(min-width: 768px) {
   .authContainer {
     width: 35%;
@@ -71,6 +87,10 @@ a {
 
   .signup-h2 {
     margin-top: 2rem;
+  }
+
+  .loggedInMessage {
+    height: 50vh;
   }
 }
 
