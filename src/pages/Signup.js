@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { doCreateUserWithEmailAndPassword } from "../firebase/auth";
+import { doCreateUserWithEmailAndPassword, doSendEmailVerification } from "../firebase/auth";
 
 import { GlobalContext } from "../context/GlobalState";
 
@@ -39,6 +39,7 @@ function Signup() {
         if(!isRegistering) {
             setIsRegistering(true)
             await doCreateUserWithEmailAndPassword(email, password);
+            await doSendEmailVerification()
         }
 
         setErrorMessage(validateValues());

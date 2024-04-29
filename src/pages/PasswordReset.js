@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Input from "../components/Input";
-import Button from "../components/Button";
+
 import { useAuth } from "../firebaseContext/authContext";
 import { doPasswordReset } from "../firebase/auth";
+
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 function PasswordReset() {
     const { userLoggedIn, setUserLoggedIn } = useAuth();
@@ -17,7 +19,6 @@ function PasswordReset() {
     function navigateHandler() {
         navigate("/");
     }
-
     
     const validateValues = () => {
         let error = "";
