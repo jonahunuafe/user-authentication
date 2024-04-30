@@ -16,7 +16,7 @@ function Login() {
         password: "",
     });
     const [errorMessage, setErrorMessage] = useState({});
-    const [isSigningIn, setIsSigningIn] = useState(false);
+    // const [isSigningIn, setIsSigningIn] = useState(false);
     // const [validation, setValidation] = useState("");
     
     const { state, toggleForm } = useContext(GlobalContext);
@@ -44,11 +44,11 @@ function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if(!isSigningIn) {
-           setIsSigningIn(true);
-           await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
-        }
-
+        // if(!isSigningIn) {
+        //    setIsSigningIn(false);
+        // }
+        
+        await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
         setErrorMessage(validateValues(inputFields));
         setInputFields({
             ...inputFields,
