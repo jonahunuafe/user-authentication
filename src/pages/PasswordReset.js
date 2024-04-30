@@ -13,6 +13,7 @@ function PasswordReset() {
     const [email, setEmail] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [isSigningIn, setIsSigningIn] = useState(false);
+    const [validation, setValidation] = useState(false);
 
     const navigate = useNavigate();
 
@@ -32,10 +33,16 @@ function PasswordReset() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if(!isSigningIn) {
+        if(userLoggedIn) {
             setIsSigningIn(true);
             setUserLoggedIn(true);
-            await doPasswordReset(email);
+            try {
+                await doPasswordReset(email);
+            } catch (error) {
+                if(error.code === "auth/missing-email") {
+                    setValidation("Missing email address");
+                }
+            }
         }
 
         setErrorMessage(validateValues());
@@ -44,7 +51,7 @@ function PasswordReset() {
 
     return (
         <div className="authContainer">
-            {userLoggedIn && 
+            {isSigningIn && 
                 <p className="resetLink">
                     A reset link has being sent to your email
                 </p>
@@ -64,6 +71,7 @@ function PasswordReset() {
                 </p>
                 <Button btnText="Send" className="button" type="submit" />
             </form>
+            {validation}
             <Button 
                 onClick={navigateHandler} 
                 className="backToLogin" 

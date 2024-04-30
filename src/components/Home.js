@@ -21,7 +21,7 @@ function Home() {
       <div className="loggedInMessage">
         <p>
           Hello 
-          <span> {currentUser.displayName ? currentUser.displayName : currentUser.email}
+          <span> {currentUser.email}
           </span>, you are logged in.
         </p>
       </div>
