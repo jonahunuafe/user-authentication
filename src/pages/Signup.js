@@ -69,6 +69,11 @@ function Signup() {
 
     return (
         <>
+            {isRegistering && 
+                <p className="resetLink">
+                    You've successfully created an account.
+                </p>
+            }
             <div className="authContainer">
                 <form onSubmit={handleSubmit}>
                     <div>
