@@ -17,6 +17,7 @@ function Login() {
     });
     const [errorMessage, setErrorMessage] = useState({});
     const [isSigningIn, setIsSigningIn] = useState(false);
+    // const [validation, setValidation] = useState("");
     
     const { state, toggleForm } = useContext(GlobalContext);
 
@@ -44,12 +45,8 @@ function Login() {
         event.preventDefault();
 
         if(!isSigningIn) {
-            setIsSigningIn(true);
-            try {
-                await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
-            } catch(error) {
-
-            }
+           setIsSigningIn(true);
+           await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
         }
 
         setErrorMessage(validateValues(inputFields));
@@ -96,6 +93,7 @@ function Login() {
                     <Button btnText="Login" className="button" />
                     <p></p>
                 </form>
+                {/* <p>{validation}</p> */}
                 <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 <div>
                     {

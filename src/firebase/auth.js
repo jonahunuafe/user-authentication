@@ -11,7 +11,7 @@ export const doCreateUserWithEmailAndPassword = async(email, password) => {
    return createUserWithEmailAndPassword(auth, email, password);
 }
 
-export const doLogInWithEmailAndPassword = (email, password) => {
+export const doLogInWithEmailAndPassword = async (email, password) => {
    return signInWithEmailAndPassword(auth, email, password);
 }
 
