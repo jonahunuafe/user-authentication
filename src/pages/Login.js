@@ -5,6 +5,7 @@ import Button from "../components/Button";
 import { doLogInWithEmailAndPassword } from "../firebase/auth";
 import { useAuth } from "../firebaseContext/authContext";
 
+
 import { GlobalContext } from "../context/GlobalState";
 
 function Login() {
@@ -16,6 +17,7 @@ function Login() {
     });
     const [errorMessage, setErrorMessage] = useState({});
     const [isSigningIn, setIsSigningIn] = useState(false);
+    const [error, setError] = useState(false);
     
     const { state, toggleForm } = useContext(GlobalContext);
 
@@ -44,7 +46,12 @@ function Login() {
 
         if(!isSigningIn) {
             setIsSigningIn(true);
-            await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
+            try {
+                await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
+
+            } catch() {
+
+            }
         }
 
         setErrorMessage(validateValues(inputFields));
@@ -82,12 +89,14 @@ function Login() {
                         value={inputFields.password} 
                         onChange={handleChange} 
                     />
+                    {<p>{error === "Firebase: Error (auth/wrong-password)." ? "Wrong Password" : "Wrong Email"}</p>}
                     {
                         <p className="error">
                             {inputFields.password.length === 0 ? errorMessage.password : null}
                         </p>
                     }
                     <Button btnText="Login" className="button" />
+                    <p></p>
                 </form>
                 <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 <div>

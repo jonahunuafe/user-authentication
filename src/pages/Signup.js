@@ -39,7 +39,6 @@ function Signup() {
         if(!isRegistering) {
             setIsRegistering(true)
             await doCreateUserWithEmailAndPassword(email, password);
-            await doSendEmailVerification()
         }
 
         setErrorMessage(validateValues());
