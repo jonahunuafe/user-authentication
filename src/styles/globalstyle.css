@@ -40,6 +40,12 @@ button:hover {
    text-align: left;
 }
 
+.validation {
+   color: #FC4100;
+   font-size: 1rem;
+   font-weight: 600;
+}
+
 @media(min-width: 768px) {
    input {
       padding: 3%;

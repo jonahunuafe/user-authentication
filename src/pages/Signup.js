@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
-import { doCreateUserWithEmailAndPassword, doSendEmailVerification } from "../firebase/auth";
+import { doCreateUserWithEmailAndPassword } from "../firebase/auth";
 
 import { GlobalContext } from "../context/GlobalState";
 
@@ -13,6 +13,8 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState({});
     const [isRegistering, setIsRegistering] = useState(false);
+    // const [doc, setDoc] = useState("");
+    const [validation, setValidation] = useState("");
 
     const { state, toggleForm } = useContext(GlobalContext);
 
@@ -38,7 +40,24 @@ function Signup() {
         event.preventDefault();
         if(!isRegistering) {
             setIsRegistering(true)
-            await doCreateUserWithEmailAndPassword(email, password);
+            try {
+                    await doCreateUserWithEmailAndPassword(email, password);
+                // const user = userCredential.user; 
+                // const allUsers = {
+                //     firstName, lastName
+                // }
+                // const docRef = doc(allUsers, user.uid);
+                // setDoc(docRef, email);
+                //add user to database
+            } catch (error) {
+                if (error.code === "auth/email-already-in-use") {
+                    setValidation("The email address is already in use");
+                } else if (error.code === "auth/invalid-email") {
+                    setValidation("The email address is not valid."); 
+                } else if (error.code === "auth/weak-password") {
+                    setValidation("Password not strong enough.");
+                }      
+            }
         }
 
         setErrorMessage(validateValues());
@@ -105,7 +124,7 @@ function Signup() {
                         <Button btnText="Signup" className="button" />
                     </div> 
                 </form>
-
+                <p className="validation">{validation}</p>
                 <p>
                     By clicking "Sign up" you agree to our 
                     <a href="http://"> Terms & Privacy Policy</a>

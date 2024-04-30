@@ -17,7 +17,6 @@ function Login() {
     });
     const [errorMessage, setErrorMessage] = useState({});
     const [isSigningIn, setIsSigningIn] = useState(false);
-    const [error, setError] = useState(false);
     
     const { state, toggleForm } = useContext(GlobalContext);
 
@@ -48,8 +47,7 @@ function Login() {
             setIsSigningIn(true);
             try {
                 await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
-
-            } catch() {
+            } catch(error) {
 
             }
         }
@@ -89,7 +87,7 @@ function Login() {
                         value={inputFields.password} 
                         onChange={handleChange} 
                     />
-                    {<p>{error === "Firebase: Error (auth/wrong-password)." ? "Wrong Password" : "Wrong Email"}</p>}
+                    {/* {<p>{error === "Firebase: Error (auth/wrong-password)." ? "Wrong Password" : "Wrong Email"}</p>} */}
                     {
                         <p className="error">
                             {inputFields.password.length === 0 ? errorMessage.password : null}
