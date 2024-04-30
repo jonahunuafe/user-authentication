@@ -105,6 +105,10 @@ a {
   cursor: pointer;
 }
 
+.logoutBtn:hover {
+  background-color: #687EFF;
+}
+
 @media(min-width: 768px) {
   .authContainer {
     width: 35%;

@@ -14,18 +14,19 @@ function Home() {
 
   return (
     <div className="logoutContainer">
-    <div onClick={handleNavigate} className="logoutBtn">
-      logout
+      <div onClick={handleNavigate} className="logoutBtn">
+        logout
+      </div>
+
+      <div className="loggedInMessage">
+        <p>
+          Hello 
+          <span> {currentUser.displayName ? currentUser.displayName : currentUser.email}
+          </span>, you are logged in.
+        </p>
+      </div>
     </div>
-    <div className="loggedInMessage">
-      <p>
-        Hello 
-        <span> {currentUser.displayName ? currentUser.displayName : currentUser.email}
-        </span>, you are logged in.
-      </p>
-    </div>
-    </div>
-  )
+  );
 }
 
 export default Home;
