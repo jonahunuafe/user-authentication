@@ -24,7 +24,7 @@ function PasswordReset() {
         if (email.length === 0) {
             error = "Email required";
         } else if (email.length > 0) {
-            return <p className="resetLink">Successfully sent reset link to your email address</p>
+            return <p className="resetLink">Successfully sent reset link to your email address.</p>
         }
         return error;   
     };

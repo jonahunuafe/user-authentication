@@ -1,65 +1,69 @@
 import React, { useState, useContext } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { doLogInWithEmailAndPassword } from "../firebase/auth";
-import { useAuth } from "../firebaseContext/authContext";
 
 
 import { GlobalContext } from "../context/GlobalState";
 
 function Login() {
-    const { userLoggedIn } = useAuth();
+    const navigate = useNavigate()
+
+    function navigateHandler() {
+        if(email.length > 0) {
+            navigate("/home");
+        }
+        if (email.length === 0) {
+            navigate("/")
+        }
+
+    }
     
-    const [inputFields, setInputFields] = useState({
-        email: "",
-        password: "",
-    });
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState({});
-    // const [isSigningIn, setIsSigningIn] = useState(false);
-    // const [validation, setValidation] = useState("");
+    const [isSigningIn, setIsSigningIn] = useState(false);
+    const [validation, setValidation] = useState("");
     
     const { state, toggleForm } = useContext(GlobalContext);
 
     
-    const validateValues = (inputValues) => {
+    const validateValues = () => {
         let error = {};
         
-        if(inputValues.email.length === 0) {
+        if(email.length === 0) {
             error.email = "Email is required"; 
         }
-        if(inputValues.password.length === 0) {
+        if(password.length === 0) {
             error.password = "Password is required";
         }
         return error;
     }
 
-    const handleChange = (event) => {
-        setInputFields({
-            ...inputFields,
-            [event.target.name]: event.target.value
-        });
-    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // if(!isSigningIn) {
-        //    setIsSigningIn(false);
-        // }
+        if(!isSigningIn) {
+           setIsSigningIn(true);
+           try {
+               await doLogInWithEmailAndPassword(email, password)
+           } catch(error) {
+                if(error.code === "auth/missing-email") {
+                    setValidation("missing email");
+                }
+           }
+        }
         
-        await doLogInWithEmailAndPassword(inputFields.email, inputFields.password)
-        setErrorMessage(validateValues(inputFields));
-        setInputFields({
-            ...inputFields,
-            email: "",
-            password: ""
-        })
+        setErrorMessage(validateValues());
+        setEmail("")
+        setPassword("")
+        navigateHandler();
     }
     
     return (
         <>
-            {userLoggedIn && (<Navigate to={"/home"} replace={true} />)}
             <div className="authContainer">
                 <h2 className="login-h2">Log in</h2>
                 <form onSubmit={handleSubmit}>
@@ -68,12 +72,12 @@ function Login() {
                         id="email" 
                         type="email" 
                         name="email" 
-                        value={inputFields.email} 
-                        onChange={handleChange} 
+                        value={email} 
+                        onChange={(event) =>  setEmail(event.target.value)} 
                     />
                     {
                         <p className="error">
-                            {inputFields.email.length === 0 ? errorMessage.email : null}
+                            {email.length === 0 ? errorMessage.email : null}
                         </p>
                     }
                     <Input 
@@ -81,18 +85,18 @@ function Login() {
                         id="passord" 
                         type="password" 
                         name="password"
-                        value={inputFields.password} 
-                        onChange={handleChange} 
+                        value={password} 
+                        onChange={(event) => setPassword(event.target.value)} 
                     />
                     {
                         <p className="error">
-                            {inputFields.password.length === 0 ? errorMessage.password : null}
+                            {password.length === 0 ? errorMessage.password : null}
                         </p>
                     }
                     <Button btnText="Login" className="button" />
-                    <p></p>
+                    {/* <p></p> */}
                 </form>
-                {/* <p>{validation}</p> */}
+                <p>{validation}</p>
                 <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 <div>
                     {

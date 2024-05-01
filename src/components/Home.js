@@ -4,7 +4,7 @@ import { doSignOut } from '../firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
-  const { currentUser } = useAuth();
+  const { currentUser, userLoggedIn } = useAuth();
   const navigate = useNavigate();
 
   function handleNavigate() {
@@ -20,9 +20,9 @@ function Home() {
 
       <div className="loggedInMessage">
         <p>
-          Hello 
-          <span> {currentUser.email}
-          </span>, you are logged in.
+          Hello, 
+          <span> { userLoggedIn && currentUser.email}
+          </span>you are logged in.
         </p>
       </div>
     </div>
