@@ -82,8 +82,14 @@ a {
 .resetLink {
   background-color: #FBFFDC;
   color: #54B435;
-  padding: 1rem;
+  padding: 0.5rem;
+  font-size: 1.1em;
+  letter-spacing: 0.1rem;
+  font-weight: 500;
   border-radius: 0.5rem;
+  position: relative;
+  top: 3rem;
+  /* margin-top: 20%; */
 }
 
 .logoutContainer {
@@ -127,6 +133,12 @@ a {
     width: 5%;
     margin-top: 1.5rem;
     margin-right: 4rem;
+  }
+
+  .resetLink {
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    top: 4rem;
   }
 }
 
