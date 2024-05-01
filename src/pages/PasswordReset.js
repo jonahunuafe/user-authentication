@@ -1,19 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { useAuth } from "../firebaseContext/authContext";
 import { doPasswordReset } from "../firebase/auth";
 
 import Input from "../components/Input";
 import Button from "../components/Button";
 
 function PasswordReset() {
-    const { userLoggedIn, setUserLoggedIn } = useAuth();
-
     const [email, setEmail] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
     const [isSigningIn, setIsSigningIn] = useState(false);
-    const [validation, setValidation] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
+    const [validation, setValidation] = useState("");
 
     const navigate = useNavigate();
 
@@ -22,25 +19,26 @@ function PasswordReset() {
     }
     
     const validateValues = () => {
-        let error = "";
+        let error = validation;
 
         if (email.length === 0) {
-          error = "Email is required";
+            error = "Email required";
+        } else if (email.length > 0) {
+            return <p className="resetLink">Successfully sent reset link to your email account</p>
         }
-        return error;
+        return error;   
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if(userLoggedIn) {
+        if(!isSigningIn) {
             setIsSigningIn(true);
-            setUserLoggedIn(true);
             try {
                 await doPasswordReset(email);
             } catch (error) {
                 if(error.code === "auth/missing-email") {
-                    setValidation("Missing email address");
+                    setValidation("(*not optional)");
                 }
             }
         }
@@ -51,11 +49,6 @@ function PasswordReset() {
 
     return (
         <div className="authContainer">
-            {isSigningIn && 
-                <p className="resetLink">
-                    A reset link has being sent to your email
-                </p>
-            }
             <form onSubmit={handleSubmit}>
                 <h2 className="reset-h2">Send password reset link</h2>
                 <h4 className="reset-h4">We'll send a reset link to your email</h4>
@@ -66,12 +59,12 @@ function PasswordReset() {
                     value={email} 
                     onChange={(e) => setEmail(e.target.value)} 
                 />
-                <p className="error">
-                    {email.length === 0 ? errorMessage : null}
-                </p>
+                <p className="error">{email.length === 0 && errorMessage }</p>
+                <span className="resetValidationError" style={{display: "none"}}>
+                    {validation}
+                </span>
                 <Button btnText="Send" className="button" type="submit" />
             </form>
-            {validation}
             <Button 
                 onClick={navigateHandler} 
                 className="backToLogin" 
