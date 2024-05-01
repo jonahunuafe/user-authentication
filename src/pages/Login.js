@@ -15,7 +15,7 @@ function Login() {
             navigate("/home");
         }
         if (email.length === 0) {
-            navigate("/")
+            navigate("/loginerror")
         }
 
     }

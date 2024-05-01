@@ -6,6 +6,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from "./components/Home";
 import PasswordReset from './pages/PasswordReset';
+import NoLoginCredentials from "./components/NoLoginCredentials";
 import { GlobalProvider } from "./context/GlobalState";
 import { AuthProvider } from "./firebaseContext/authContext";
 
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
     {path: "/login", element: <Login />},
   ]},
   {path: "/login/passwordreset", element: <PasswordReset />},
-  {path: "/home", element: <Home />}
+  {path: "/home", element: <Home />},
+  {path: "/loginerror", element: <NoLoginCredentials />}
 ]);
 
 function App() {
