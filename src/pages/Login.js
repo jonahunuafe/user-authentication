@@ -21,7 +21,7 @@ function Login() {
         if(email.length > 0) {
             navigate("/home");
         }
-        if (email.length === 0) {
+        if (email.length === 0 || password.length === 0) {
             navigate("/loginerror")
         }
     }
