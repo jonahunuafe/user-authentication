@@ -3,17 +3,17 @@ import React, { createContext, useState, useEffect } from "react";
 export const GlobalContext = createContext();
 
 export const GlobalProvider = ({  children }) => {
-   const [state, setState] = useState("");
+   const [state, setState] = useState("login");
 
    useEffect(() => {
-      const storedInitialState = window.localStorage.getItem("state", state);
+      const storedInitialState = localStorage.getItem("state", state);
       setState(storedInitialState);
    }, [state]);
 
   
    const toggleForm = (formName) => {
       setState(formName);
-      window.localStorage.setItem("state", formName)
+      localStorage.setItem("state", formName)
    } 
  
    return (
