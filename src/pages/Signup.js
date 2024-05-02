@@ -33,6 +33,10 @@ function Signup() {
         if (password.length === 0) {
           error.password = "Password is required";
         }
+
+        if(password.length <= 5) {
+            error.password = "Password must be six characters or more"
+        }
         return error;
     };
 
@@ -40,7 +44,8 @@ function Signup() {
         if(firstName.length > 0 
             && lastName.length > 0 
             && email.length > 0 
-            && password.length > 0 
+            && password.length > 0
+            && password.length > 5
         ) {
             return setSignupValid(
                 <p className="successLink">
@@ -59,11 +64,8 @@ function Signup() {
             } catch (error) {
                 if (error.code === "auth/email-already-in-use") {
                     setValidation("The email address is already in use");
-                } else if (error.code === "auth/invalid-email") {
-                    setValidation("The email address is not valid."); 
-                } else if (error.code === "auth/weak-password") {
-                    setValidation("Password not strong enough.");
-                }      
+                    return setSignupValid("")
+                }     
             }
         }
 
@@ -133,7 +135,7 @@ function Signup() {
                         <Button btnText="Signup" className="button" />
                     </div> 
                 </form>
-                <p className="validation" style={{display: "none"}}>{validation}</p>
+                <p className="validation">{validation}</p>
                 <p>
                     By clicking "Sign up" you agree to our 
                     <a href="http://"> Terms & Privacy Policy</a>
