@@ -19,7 +19,7 @@ function PasswordReset() {
     }
     
     const validateValues = () => {
-        let error = validation;
+        let error = "";
 
         if (email.length === 0) {
             error = "Email required";

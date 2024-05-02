@@ -24,7 +24,6 @@ function Login() {
         if (email.length === 0) {
             navigate("/loginerror")
         }
-
     }
 
     const validateValues = () => {
