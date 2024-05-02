@@ -34,7 +34,7 @@ function Signup() {
           error.password = "Password is required";
         }
 
-        if(password.length <= 5) {
+        if(password.length >= 1 && password.length <= 5 ) {
             error.password = "Password must be six characters or more"
         }
         return error;
@@ -44,7 +44,6 @@ function Signup() {
         if(firstName.length > 0 
             && lastName.length > 0 
             && email.length > 0 
-            && password.length > 0
             && password.length > 5
         ) {
             return setSignupValid(
