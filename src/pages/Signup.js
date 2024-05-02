@@ -62,7 +62,7 @@ function Signup() {
     return (
         <>
             {isRegistering && 
-                <p className="resetLink">
+                <p className="successLink">
                     You've successfully created an account.
                 </p>
             }

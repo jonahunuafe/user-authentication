@@ -79,7 +79,7 @@ a {
   font-weight: 600;
 }
 
-.resetLink {
+.successLink {
   background-color: #FBFFDC;
   color: #54B435;
   padding: 0.5rem;
@@ -89,7 +89,6 @@ a {
   border-radius: 0.5rem;
   position: relative;
   top: 3rem;
-  /* margin-top: 20%; */
 }
 
 .logoutContainer {
@@ -147,7 +146,7 @@ a {
     margin-right: 4rem;
   }
 
-  .resetLink {
+  .successLink {
     font-size: 1.1rem;
     border-radius: 0.5rem;
     top: 4rem;
