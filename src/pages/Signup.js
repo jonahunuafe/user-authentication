@@ -13,7 +13,6 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState({});
     const [isRegistering, setIsRegistering] = useState(false);
-    // const [doc, setDoc] = useState("");
     const [validation, setValidation] = useState("");
 
     const { state, toggleForm } = useContext(GlobalContext);
@@ -41,14 +40,7 @@ function Signup() {
         if(!isRegistering) {
             setIsRegistering(true)
             try {
-                    await doCreateUserWithEmailAndPassword(email, password);
-                // const user = userCredential.user; 
-                // const allUsers = {
-                //     firstName, lastName
-                // }
-                // const docRef = doc(allUsers, user.uid);
-                // setDoc(docRef, email);
-                //add user to database
+                await doCreateUserWithEmailAndPassword(email, password);
             } catch (error) {
                 if (error.code === "auth/email-already-in-use") {
                     setValidation("The email address is already in use");

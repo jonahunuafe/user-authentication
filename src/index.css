@@ -115,6 +115,18 @@ a {
   background-color: #687EFF;
 }
 
+.loginErrorContainer {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginErrorContainer > p > a {
+  text-decoration: underline;
+}
+
+
 @media(min-width: 768px) {
   .authContainer {
     width: 35%;
@@ -139,6 +151,10 @@ a {
     font-size: 1.1rem;
     border-radius: 0.5rem;
     top: 4rem;
+  }
+
+  .loginErrorContainer {
+    height: 50vh;
   }
 }
 

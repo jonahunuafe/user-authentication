@@ -22,7 +22,7 @@ function Home() {
         <p>
           Hello, 
           <span> { userLoggedIn && currentUser.email}
-          </span>you are logged in.
+          </span> you are logged in.
         </p>
       </div>
     </div>
