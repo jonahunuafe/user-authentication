@@ -1,13 +1,20 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Input from "../components/Input";
-import Button from "../components/Button";
+
 import { doLogInWithEmailAndPassword } from "../firebase/auth";
-
-
 import { GlobalContext } from "../context/GlobalState";
 
+import Input from "../components/Input";
+import Button from "../components/Button";
+
 function Login() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState({});
+    const [isSigningIn, setIsSigningIn] = useState(false);
+    const [validation, setValidation] = useState("");
+
+    const { state, toggleForm } = useContext(GlobalContext);
     const navigate = useNavigate()
 
     function navigateHandler() {
@@ -19,16 +26,7 @@ function Login() {
         }
 
     }
-    
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState({});
-    const [isSigningIn, setIsSigningIn] = useState(false);
-    const [validation, setValidation] = useState("");
-    
-    const { state, toggleForm } = useContext(GlobalContext);
 
-    
     const validateValues = () => {
         let error = {};
         
@@ -94,9 +92,8 @@ function Login() {
                         </p>
                     }
                     <Button btnText="Login" className="button" />
-                    {/* <p></p> */}
                 </form>
-                <p>{validation}</p>
+                <p style={{display: "none"}}>{validation}</p>
                 <p><Link to="/login/passwordreset">Forgot your password?</Link></p>
                 <div>
                     {
