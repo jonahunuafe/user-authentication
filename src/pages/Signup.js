@@ -14,6 +14,7 @@ function Signup() {
     const [errorMessage, setErrorMessage] = useState({});
     const [isRegistering, setIsRegistering] = useState(false);
     const [validation, setValidation] = useState("");
+    const [signupValid, setSignupValid] = useState("");
 
     const { state, toggleForm } = useContext(GlobalContext);
 
@@ -34,6 +35,20 @@ function Signup() {
         }
         return error;
     };
+
+    const validateBeforeSignUp = () => {
+        if(firstName.length > 0 
+            && lastName.length > 0 
+            && email.length > 0 
+            && password.length > 0 
+        ) {
+            return setSignupValid(
+                <p className="successLink">
+                    You've successfully created an account.
+                </p>
+            );
+        }
+    }
 
     const handleSubmit  = async (event) => {
         event.preventDefault();
@@ -57,15 +72,12 @@ function Signup() {
         setLastName("")
         setEmail("")
         setPassword("")
+        validateBeforeSignUp()
     }
 
     return (
         <>
-            {isRegistering && 
-                <p className="successLink">
-                    You've successfully created an account.
-                </p>
-            }
+            {signupValid}
             <div className="authContainer">
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -121,7 +133,7 @@ function Signup() {
                         <Button btnText="Signup" className="button" />
                     </div> 
                 </form>
-                <p className="validation">{validation}</p>
+                <p className="validation" style={{display: "none"}}>{validation}</p>
                 <p>
                     By clicking "Sign up" you agree to our 
                     <a href="http://"> Terms & Privacy Policy</a>
